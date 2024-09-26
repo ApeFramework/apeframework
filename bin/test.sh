@@ -16,7 +16,6 @@
 # TODO: rewrite to match usage
 #       local options=${@:4}
 #       options=${@:4}
-#       
 #
 
 test() {

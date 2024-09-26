@@ -11,3 +11,17 @@ GitHub repository: [ApeFramework/apeframework](https://github.com/ApeFramework/a
 ```
 npm install apeframework
 ```
+
+## Development
+
+Deploy dev stack:
+
+```
+docker compose up
+```
+
+Get a shell from the Node.js container:
+
+```
+docker compose exec node bash
+```

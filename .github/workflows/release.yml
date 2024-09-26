@@ -1,0 +1,50 @@
+name: Release NPM package
+
+run-name: Release ${{ github.ref_name }}
+
+on:
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+      - v0.0.0-dev.[0-9]+
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get tag
+        id: tag
+        run: |
+          tag=${{ github.ref_name }}
+          version=${tag:1}
+          dev=${{ startsWith(github.ref_name, 'v0.0.0-dev') }}
+          echo "version=$version" >> $GITHUB_OUTPUT
+          echo "dev=$dev" >> $GITHUB_OUTPUT
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run linter
+        run: yarn lint
+
+      - name: Run tests
+        run: ./bin/test.sh
+
+      - name: Publish package to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn build
+          ./bin/package.js ${{ steps.tag.outputs.version }}
+          cd $GITHUB_WORKSPACE/dist
+          npm publish \
+            --tag=${{ steps.tag.outputs.dev == 'true' && 'dev' || 'latest' }}

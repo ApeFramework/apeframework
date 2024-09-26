@@ -1,0 +1,10 @@
+{
+  "preset": "ts-jest",
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
+  "testMatch": [
+    "<rootDir>/test/**/*.spec.ts"
+  ]
+}

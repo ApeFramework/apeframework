@@ -1,0 +1,24 @@
+services:
+  node:
+    image: node:22
+    user: node
+    working_dir: /home/node/apeframework
+    volumes:
+      - ../..:/home/node/apeframework
+    depends_on:
+      mysql:
+        condition: service_started
+      wait-for-it:
+        condition: service_completed_successfully
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: database
+
+  wait-for-it:
+    image: mattsyms/wait-for-it
+    command: mysql:3306 -t 30

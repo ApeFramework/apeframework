@@ -1,0 +1,34 @@
+{
+  "root": true,
+  "extends": [
+    "@apeframework"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+      ],
+      "extends": [
+        "@apeframework/eslint-config/typescript"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "rules": {
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/only-throw-error": "off"
+      },
+      "overrides": [
+        {
+          "files": [
+            "**/*.spec.ts"
+          ],
+          "extends": [
+            "@apeframework/eslint-config/jest"
+          ]
+        }
+      ]
+    }
+  ]
+}

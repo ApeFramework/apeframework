@@ -1,6 +1,6 @@
 import pino from 'pino'
 import pretty from 'pino-pretty'
-import { Severity } from '../../Severity'
+import { Level } from '../../Level'
 import type { Logger } from '../../Logger'
 import type { Logger as PinoLogger } from 'pino'
 
@@ -11,7 +11,7 @@ class StdioLogger implements Logger {
 
   public constructor(params?: {
     pretty?: boolean,
-    severity?: Severity,
+    level?: Level,
     context?: object,
   }) {
     const stream = params?.pretty
@@ -19,19 +19,17 @@ class StdioLogger implements Logger {
       : pino.destination(process.stdout.fd)
 
     this.logger = pino({
-      enabled: params?.severity !== Severity.OFF,
-      level: params?.severity ?? Severity.INFO,
+      enabled: params?.level !== Level.OFF,
+      level: params?.level ?? Level.INFO,
       messageKey: 'message',
       formatters: {
         level(label, number) {
           return {
-            level: number,
-            ...params?.pretty ? {} : { severity: label },
+            level: label,
+            ...params?.pretty ? {} : { severity: number },
           }
         },
-        bindings: () => {
-          return {}
-        },
+        bindings: () => { return {} },
       },
     }, stream)
 
@@ -75,9 +73,9 @@ class StdioLogger implements Logger {
 
   private getData(message: string, data?: unknown): object {
     return {
+      ...this.context,
       message,
       data,
-      ...this.context,
     }
   }
 }

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import fs from 'fs-extra'
-import { EnvFileReadError } from './errors/EnvFileReadError'
+import { FileReadError } from './errors/FileReadError'
 import type { Env } from './Env'
 
 const readFile = (path: string, required = false): Env => {
@@ -9,11 +9,11 @@ const readFile = (path: string, required = false): Env => {
       return dotenv.parse(fs.readFileSync(path))
     }
   } catch (error) {
-    throw new EnvFileReadError(path, (error as Error).message)
+    throw new FileReadError(path, (error as Error).message)
   }
 
   if (required) {
-    throw new EnvFileReadError(path, 'missing file')
+    throw new FileReadError(path, 'missing file')
   }
 
   return {}

@@ -1,9 +1,9 @@
 import { isValidEmail } from 'utils/isValidEmail'
-import { MailerAddressEmailError } from './errors/MailerAddressEmailError'
+import { AddressEmailError } from './errors/AddressEmailError'
 
 const validateAddressEmail = (email: string): void => {
   if (!isValidEmail(email)) {
-    throw new MailerAddressEmailError(email)
+    throw new AddressEmailError(email)
   }
 }
 

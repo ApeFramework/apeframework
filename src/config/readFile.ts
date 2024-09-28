@@ -1,5 +1,5 @@
 import fs from 'fs-extra'
-import { ConfigFileReadError } from './errors/ConfigFileReadError'
+import { FileReadError } from './errors/FileReadError'
 
 const readFile = (path: string, required = false): Record<string, any> => {
   let json: any = {}
@@ -11,11 +11,11 @@ const readFile = (path: string, required = false): Record<string, any> => {
       json = fs.readJsonSync(path)
     }
   } catch (error) {
-    throw new ConfigFileReadError(path, (error as Error).message)
+    throw new FileReadError(path, (error as Error).message)
   }
 
   if (required && !fileExists) {
-    throw new ConfigFileReadError(path, 'missing file')
+    throw new FileReadError(path, 'missing file')
   }
 
   if (
@@ -23,7 +23,7 @@ const readFile = (path: string, required = false): Record<string, any> => {
     || Array.isArray(json)
     || json === null
   ) {
-    throw new ConfigFileReadError(path, 'invalid content')
+    throw new FileReadError(path, 'invalid content')
   }
 
   return json as Record<string, any>

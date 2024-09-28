@@ -1,5 +1,5 @@
 import { Algorithm } from './Algorithm'
-import { CipherSecretLengthError } from './errors/CipherSecretLengthError'
+import { SecretLengthError } from './errors/SecretLengthError'
 
 const secretLength = {
   [Algorithm.AES128]: 16,
@@ -9,7 +9,7 @@ const secretLength = {
 
 const validateSecretLength = (algorithm: Algorithm, secret: string): void => {
   if (Buffer.from(secret).length !== secretLength[algorithm]) {
-    throw new CipherSecretLengthError()
+    throw new SecretLengthError()
   }
 }
 

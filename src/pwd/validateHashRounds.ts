@@ -1,8 +1,8 @@
-import { PwdHashRoundsError } from './errors/PwdHashRoundsError'
+import { HashRoundsError } from './errors/HashRoundsError'
 
 const validateHashRounds = (hashRounds: number): void => {
   if (hashRounds < 1) {
-    throw new PwdHashRoundsError(hashRounds)
+    throw new HashRoundsError(hashRounds)
   }
 }
 

@@ -1,4 +1,4 @@
-import { ParserInputError } from '../../errors/ParserInputError'
+import { ParseError } from '../../errors/ParseError'
 import { parseNumber } from '../../parseNumber'
 import { parseString } from '../../parseString'
 import type { Unit } from './Unit'
@@ -14,7 +14,7 @@ const createUnitParser = (params: {
     try {
       string = parseString(input)
     } catch (error) {
-      throw new ParserInputError(params.type)
+      throw new ParseError(params.type)
     }
 
     const units: Unit[] = []
@@ -38,7 +38,7 @@ const createUnitParser = (params: {
         string.substring(0, string.length - (unit?.symbol.length ?? 0)),
       )
     } catch (error) {
-      throw new ParserInputError(params.type)
+      throw new ParseError(params.type)
     }
 
     return number * (unit?.value ?? 1)

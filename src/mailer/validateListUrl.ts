@@ -1,9 +1,9 @@
 import { isValidUrl } from 'utils/isValidUrl'
-import { MailerListUrlError } from './errors/MailerListUrlError'
+import { ListUrlError } from './errors/ListUrlError'
 
 const validateListUrl = (property: string, url: string): void => {
   if (!isValidUrl(url)) {
-    throw new MailerListUrlError(property, url)
+    throw new ListUrlError(property, url)
   }
 }
 

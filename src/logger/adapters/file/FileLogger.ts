@@ -1,5 +1,5 @@
 import pino from 'pino'
-import { Severity } from '../../Severity'
+import { Level } from '../../Level'
 import { initFile } from './initFile'
 import type { Logger } from '../../Logger'
 import type { Logger as PinoLogger } from 'pino'
@@ -11,7 +11,7 @@ class FileLogger implements Logger {
 
   public constructor(params: {
     path: string,
-    severity?: Severity,
+    level?: Level,
     context?: object,
   }) {
     initFile(params.path)
@@ -19,19 +19,17 @@ class FileLogger implements Logger {
     const stream = pino.destination(params.path)
 
     this.logger = pino({
-      enabled: params.severity !== Severity.OFF,
-      level: params.severity ?? Severity.INFO,
+      enabled: params.level !== Level.OFF,
+      level: params.level ?? Level.INFO,
       messageKey: 'message',
       formatters: {
         level(label, number) {
           return {
-            level: number,
-            severity: label,
+            level: label,
+            severity: number,
           }
         },
-        bindings: () => {
-          return {}
-        },
+        bindings: () => { return {} },
       },
     }, stream)
 
@@ -75,9 +73,9 @@ class FileLogger implements Logger {
 
   private getData(message: string, data?: unknown): object {
     return {
+      ...this.context,
       message,
       data,
-      ...this.context,
     }
   }
 }

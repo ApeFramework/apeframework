@@ -1,5 +1,5 @@
 import { Algorithm } from './Algorithm'
-import { JwtSecretLengthError } from './errors/JwtSecretLengthError'
+import { SecretLengthError } from './errors/SecretLengthError'
 
 const minSecretLength = {
   [Algorithm.HS256]: 32,
@@ -9,7 +9,7 @@ const minSecretLength = {
 
 const validateSecretLength = (algorithm: Algorithm, secret: string): void => {
   if (Buffer.from(secret).length < minSecretLength[algorithm]) {
-    throw new JwtSecretLengthError()
+    throw new SecretLengthError()
   }
 }
 

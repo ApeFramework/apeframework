@@ -1,9 +1,9 @@
 import { isValidUrl } from 'utils/isValidUrl'
-import { MailerEventUrlError } from './errors/MailerEventUrlError'
+import { EventUrlError } from './errors/EventUrlError'
 
 const validateEventUrl = (url: string): void => {
   if (!isValidUrl(url)) {
-    throw new MailerEventUrlError(url)
+    throw new EventUrlError(url)
   }
 }
 

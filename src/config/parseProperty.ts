@@ -1,4 +1,4 @@
-import { ConfigParseError } from './errors/ConfigParseError'
+import { PropertyParseError } from './errors/PropertyParseError'
 import type { Parser } from '../parser/Parser'
 
 const parseProperty = <Type>(
@@ -38,7 +38,7 @@ const parseProperty = <Type>(
   try {
     return parser(source.value)
   } catch (error) {
-    throw new ConfigParseError(name, source.name, (error as Error).message)
+    throw new PropertyParseError(name, source.name, (error as Error).message)
   }
 }
 

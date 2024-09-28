@@ -1,9 +1,9 @@
 import { isValidUrl } from 'utils/isValidUrl'
-import { MailerEventAttachmentUrlError } from './errors/MailerEventAttachmentUrlError'
+import { EventAttachmentUrlError } from './errors/EventAttachmentUrlError'
 
 const validateEventAttachmentUrl = (url: string): void => {
   if (!isValidUrl(url)) {
-    throw new MailerEventAttachmentUrlError(url)
+    throw new EventAttachmentUrlError(url)
   }
 }
 

@@ -1,4 +1,4 @@
-import { ParserInputError } from './errors/ParserInputError'
+import { ParseError } from './errors/ParseError'
 import type { Parser } from './Parser'
 
 const parseBoolean: Parser<boolean> = (input) => {
@@ -8,7 +8,7 @@ const parseBoolean: Parser<boolean> = (input) => {
     return false
   }
 
-  throw new ParserInputError('boolean')
+  throw new ParseError('boolean')
 }
 
 export {

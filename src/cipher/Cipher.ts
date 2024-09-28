@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import { CipherDecryptError } from './errors/CipherDecryptError'
+import { DecryptError } from './errors/DecryptError'
 import { validateSecretLength } from './validateSecretLength'
 import type { Algorithm } from './Algorithm'
 
@@ -36,7 +36,7 @@ class Cipher {
       return decipher.update(buffer.subarray(16), undefined, 'utf8')
         + decipher.final('utf8')
     } catch (error) {
-      throw new CipherDecryptError((error as Error).message)
+      throw new DecryptError((error as Error).message)
     }
   }
 }

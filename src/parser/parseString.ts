@@ -1,4 +1,4 @@
-import { ParserInputError } from './errors/ParserInputError'
+import { ParseError } from './errors/ParseError'
 import type { Parser } from './Parser'
 
 const parseString: Parser<string> = (input) => {
@@ -9,7 +9,7 @@ const parseString: Parser<string> = (input) => {
   } else if (input === true) {
     return '1'
   } else if (['object', 'function', 'symbol'].includes(typeof input)) {
-    throw new ParserInputError('string')
+    throw new ParseError('string')
   }
 
   return String(input)

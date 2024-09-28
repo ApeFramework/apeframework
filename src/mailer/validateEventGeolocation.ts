@@ -1,12 +1,12 @@
 import { isValidGeolocation } from 'utils/isValidGeolocation'
-import { MailerEventGeolocationError } from './errors/MailerEventGeolocationError'
+import { EventGeolocationError } from './errors/EventGeolocationError'
 
 const validateEventGeolocation = (
   latitude: number,
   longitude: number,
 ): void => {
   if (!isValidGeolocation(latitude, longitude)) {
-    throw new MailerEventGeolocationError(latitude, longitude)
+    throw new EventGeolocationError(latitude, longitude)
   }
 }
 

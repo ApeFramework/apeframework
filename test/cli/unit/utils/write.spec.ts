@@ -1,12 +1,12 @@
-import { write } from 'cli/utils/write'
+import { print } from 'cli/utils/print'
 
-describe('writing to the standard output', () => {
+describe('printing', () => {
   test('has expected side effect', async () => {
     const writeMock = jest
       .spyOn(process.stdout, 'write')
       .mockImplementation(() => { return true })
 
-    write('foo')
+    print('foo')
 
     expect(writeMock).toHaveBeenCalledWith('foo')
   })

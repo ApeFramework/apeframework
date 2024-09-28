@@ -1,4 +1,4 @@
-import { ParserInputError } from './errors/ParserInputError'
+import { ParseError } from './errors/ParseError'
 import { parseNumber } from './parseNumber'
 import type { Parser } from './Parser'
 
@@ -8,11 +8,11 @@ const parseInteger: Parser<number> = (input) => {
   try {
     number = parseNumber(input)
   } catch (error) {
-    throw new ParserInputError('integer')
+    throw new ParseError('integer')
   }
 
   if (!Number.isSafeInteger(number)) {
-    throw new ParserInputError('integer')
+    throw new ParseError('integer')
   }
 
   return number

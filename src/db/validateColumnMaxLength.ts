@@ -1,8 +1,8 @@
-import { DbColumnMaxLengthError } from './errors/DbColumnMaxLengthError'
+import { ColumnMaxLengthError } from './errors/ColumnMaxLengthError'
 
 const validateColumnMaxLength = (maxLength: number): void => {
   if (maxLength < 1 || maxLength > 65535) {
-    throw new DbColumnMaxLengthError(maxLength)
+    throw new ColumnMaxLengthError(maxLength)
   }
 }
 

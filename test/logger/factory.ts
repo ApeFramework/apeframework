@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto'
-import { Severity } from 'logger/Severity'
+import { Level } from 'logger/Level'
 import { FileLogger } from 'logger/adapters/file/FileLogger'
 import { NoopLogger } from 'logger/adapters/noop/NoopLogger'
 import { StdioLogger } from 'logger/adapters/stdio/StdioLogger'
@@ -15,7 +15,7 @@ const createLogger = (): Logger => {
       return new NoopLogger()
     case 'stdio':
       return new StdioLogger({
-        severity: Severity.OFF,
+        level: Level.OFF,
       })
     default:
       throw new Error('invalid adapter')

@@ -1,5 +1,5 @@
 import fs from 'fs-extra'
-import { TlsFileReadError } from './errors/TlsFileReadError'
+import { FileReadError } from './errors/FileReadError'
 
 const readFile = (path: string): string => {
   try {
@@ -7,10 +7,10 @@ const readFile = (path: string): string => {
       return fs.readFileSync(path).toString()
     }
   } catch (error) {
-    throw new TlsFileReadError(path, (error as Error).message)
+    throw new FileReadError(path, (error as Error).message)
   }
 
-  throw new TlsFileReadError(path, 'missing file')
+  throw new FileReadError(path, 'missing file')
 }
 
 export {

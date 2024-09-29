@@ -1,8 +1,12 @@
 interface Payload {
   [key: string]: unknown,
-  subject: string,
-  issuedAt: number,
-  id?: string,
+  iss?: string,
+  aud?: string[],
+  sub?: string,
+  jti?: string,
+  iat?: number,
+  exp?: number,
+  nbf?: number,
 }
 
 export {

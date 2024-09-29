@@ -1,10 +1,10 @@
 import pino from 'pino'
 import pretty from 'pino-pretty'
 import { Level } from '../../Level'
-import type { Logger } from '../../Logger'
+import { Logger } from '../../Logger'
 import type { Logger as PinoLogger } from 'pino'
 
-class StdioLogger implements Logger {
+class StdioLogger extends Logger {
   private readonly logger: PinoLogger
 
   private readonly context: object | undefined
@@ -14,6 +14,8 @@ class StdioLogger implements Logger {
     level?: Level,
     context?: object,
   }) {
+    super()
+
     const stream = params?.pretty
       ? pretty()
       : pino.destination(process.stdout.fd)
@@ -26,7 +28,9 @@ class StdioLogger implements Logger {
         level(label, number) {
           return {
             level: label,
-            ...params?.pretty ? {} : { severity: number },
+            ...params?.pretty
+              ? {}
+              : { severity: number },
           }
         },
         bindings: () => { return {} },
@@ -37,27 +41,27 @@ class StdioLogger implements Logger {
   }
 
   public trace(message: string, data?: unknown): void {
-    this.logger.trace(this.getData(message, data))
+    this.logger.trace(this.getPayload(message, data))
   }
 
   public debug(message: string, data?: unknown): void {
-    this.logger.debug(this.getData(message, data))
+    this.logger.debug(this.getPayload(message, data))
   }
 
   public info(message: string, data?: unknown): void {
-    this.logger.info(this.getData(message, data))
+    this.logger.info(this.getPayload(message, data))
   }
 
   public warn(message: string, data?: unknown): void {
-    this.logger.warn(this.getData(message, data))
+    this.logger.warn(this.getPayload(message, data))
   }
 
   public error(message: string, data?: unknown): void {
-    this.logger.error(this.getData(message, data))
+    this.logger.error(this.getPayload(message, data))
   }
 
   public fatal(message: string, data?: unknown): void {
-    this.logger.fatal(this.getData(message, data))
+    this.logger.fatal(this.getPayload(message, data))
   }
 
   public async close(): Promise<void> {
@@ -71,7 +75,7 @@ class StdioLogger implements Logger {
     })
   }
 
-  private getData(message: string, data?: unknown): object {
+  private getPayload(message: string, data?: unknown): object {
     return {
       ...this.context,
       message,

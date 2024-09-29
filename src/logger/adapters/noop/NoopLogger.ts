@@ -1,6 +1,6 @@
-import type { Logger } from '../../Logger'
+import { Logger } from '../../Logger'
 
-class NoopLogger implements Logger {
+class NoopLogger extends Logger {
   public trace(): void { }
 
   public debug(): void { }

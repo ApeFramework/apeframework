@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "module": "commonjs",
     "target": "esnext",
     "baseUrl": "src",
-    "declaration": true,
     "esModuleInterop": true,
-    "noEmit": true,
     "skipLibCheck": true,
     "strict": true
   },

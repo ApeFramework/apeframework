@@ -8,7 +8,7 @@
 #
 #   Test a module:
 #     ./bin/test.sh api unit node
-#     ./bin/test.sh db mysql mysql-8
+#     ./bin/test.sh mailer smtp maildev
 #
 #   Test a module using options:
 #     ./bin/test.sh api unit node --no-coverage

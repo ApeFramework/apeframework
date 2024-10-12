@@ -1,9 +1,9 @@
 import { randomUUID } from 'crypto'
+import { Mailer } from '../../Mailer'
 import type { Mail } from '../../Mail'
-import type { Mailer } from '../../Mailer'
 
-class NoopMailer implements Mailer {
-  public async send(mail: Mail): Promise<string> {
+class NoopMailer extends Mailer {
+  public async sendMail(mail: Mail): Promise<string> {
     return `${randomUUID()}@${mail.from.email.split('@')[1]}`
   }
 

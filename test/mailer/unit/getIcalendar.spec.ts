@@ -1,11 +1,11 @@
-import { EventMethod } from 'mailer/EventMethod'
+import { Method } from 'mailer/Method'
 import { getIcalendar } from 'mailer/getIcalendar'
 import { isValidUuid } from 'utils/isValidUuid'
 
 describe('getting an icalendar', () => {
   test('returns expected value', async () => {
     const icalendar = getIcalendar({
-      method: EventMethod.PUBLISH,
+      method: Method.PUBLISH,
       start: new Date('2077-01-01'),
       end: new Date('2077-01-03'),
       name: 'Hello',
@@ -65,7 +65,7 @@ describe('getting an icalendar', () => {
 describe('getting an icalendar using an event id', () => {
   test('returns expected value', async () => {
     const icalendar = getIcalendar({
-      method: EventMethod.PUBLISH,
+      method: Method.PUBLISH,
       id: '00000000-0000-0000-0000-000000000000',
       start: new Date('2077-01-01'),
       end: new Date('2077-01-03'),
@@ -80,7 +80,7 @@ describe('getting an icalendar using an event id', () => {
 describe('getting an icalendar using an all day event', () => {
   test('returns expected value', async () => {
     const icalendar = getIcalendar({
-      method: EventMethod.PUBLISH,
+      method: Method.PUBLISH,
       start: new Date('2077-01-01'),
       end: new Date('2077-01-03'),
       allDay: true,
@@ -98,7 +98,7 @@ describe('getting an icalendar using an all day event', () => {
 describe('getting an icalendar using an event geolocation', () => {
   test('returns expected value', async () => {
     const icalendar = getIcalendar({
-      method: EventMethod.PUBLISH,
+      method: Method.PUBLISH,
       start: new Date('2077-01-01'),
       end: new Date('2077-01-03'),
       name: 'Hello',

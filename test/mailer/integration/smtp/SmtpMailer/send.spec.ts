@@ -1,5 +1,5 @@
 import fs from 'fs-extra'
-import { EventMethod } from 'mailer/EventMethod'
+import { Method } from 'mailer/Method'
 import { isValidEmail } from 'utils/isValidEmail'
 import { wait } from 'utils/wait'
 import { createMailer } from '../../../factory'
@@ -32,7 +32,7 @@ describe('sending a mail', () => {
         },
       ],
       event: {
-        method: EventMethod.PUBLISH,
+        method: Method.PUBLISH,
         start: new Date('2077-01-01'),
         end: new Date('2077-01-03'),
         name: 'Hello',
@@ -179,7 +179,7 @@ describe('sending a mail using an event file name', () => {
       text: 'Hello',
       event: {
         fileName: 'hello.ics',
-        method: EventMethod.PUBLISH,
+        method: Method.PUBLISH,
         start: new Date('2077-01-01'),
         end: new Date('2077-01-03'),
         name: 'Hello',

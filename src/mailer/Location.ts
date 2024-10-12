@@ -1,4 +1,4 @@
-interface EventLocation {
+interface Location {
   name: string,
   address?: string,
   geo?: {
@@ -8,5 +8,5 @@ interface EventLocation {
 }
 
 export {
-  type EventLocation,
+  type Location,
 }

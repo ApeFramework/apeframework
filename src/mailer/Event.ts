@@ -1,9 +1,9 @@
-import type { EventLocation } from './EventLocation'
-import type { EventMethod } from './EventMethod'
+import type { Location } from './Location'
+import type { Method } from './Method'
 
 interface Event {
   fileName?: string,
-  method: EventMethod,
+  method: Method,
   id?: string,
   start: Date,
   end: Date,
@@ -11,7 +11,7 @@ interface Event {
   name: string,
   description?: string,
   url?: string,
-  location?: EventLocation,
+  location?: Location,
   attachments?: string[],
 }
 

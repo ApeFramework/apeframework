@@ -1,8 +1,8 @@
-enum EventMethod {
+enum Method {
   PUBLISH = 'PUBLISH',
   CANCEL = 'CANCEL',
 }
 
 export {
-  EventMethod,
+  Method,
 }

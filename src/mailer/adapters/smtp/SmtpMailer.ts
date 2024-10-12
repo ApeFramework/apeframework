@@ -1,15 +1,15 @@
 import nodemailer from 'nodemailer'
 import { getTls } from '../../../tls/getTls'
+import { Mailer } from '../../Mailer'
 import { getIcalendar } from '../../getIcalendar'
 import { getAddress } from './getAddress'
 import { getAddresses } from './getAddresses'
 import { getAttachments } from './getAttachments'
 import type { Tls } from '../../../tls/Tls'
 import type { Mail } from '../../Mail'
-import type { Mailer } from '../../Mailer'
 import type { Transporter } from 'nodemailer'
 
-class SmtpMailer implements Mailer {
+class SmtpMailer extends Mailer {
   private readonly transporter: Transporter
 
   public constructor(params: {
@@ -21,6 +21,8 @@ class SmtpMailer implements Mailer {
     password?: string,
     maxConnections?: number,
   }) {
+    super()
+
     this.transporter = nodemailer.createTransport({
       host: params.host,
       port: params.port,
@@ -37,7 +39,7 @@ class SmtpMailer implements Mailer {
     })
   }
 
-  public async send(mail: Mail): Promise<string> {
+  public async sendMail(mail: Mail): Promise<string> {
     const result = await this.transporter.sendMail({
       from: getAddress(mail.from),
       sender: getAddress(mail.sender),

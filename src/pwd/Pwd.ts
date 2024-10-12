@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import { validateHashRounds } from './validateHashRounds'
 
 class Pwd {
@@ -15,14 +15,14 @@ class Pwd {
   public async hashPassword(
     password: string,
   ): Promise<string> {
-    return bcrypt.hash(password, this.hashRounds)
+    return bcrypt.hashSync(password, this.hashRounds)
   }
 
   public async verifyPassword(
     password: string,
     hash: string,
   ): Promise<boolean> {
-    return bcrypt.compare(password, hash)
+    return bcrypt.compareSync(password, hash)
   }
 }
 

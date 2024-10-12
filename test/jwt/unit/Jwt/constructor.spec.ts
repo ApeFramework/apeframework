@@ -6,8 +6,6 @@ describe('creating a jwt using the hs256 algorithm', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     expect(jwt).toBeInstanceOf(Jwt)
@@ -19,8 +17,6 @@ describe('creating a jwt using the hs384 algorithm', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS384,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     expect(jwt).toBeInstanceOf(Jwt)
@@ -33,8 +29,6 @@ describe('creating a jwt using the hs512 algorithm', () => {
       algorithm: Algorithm.HS512,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     expect(jwt).toBeInstanceOf(Jwt)

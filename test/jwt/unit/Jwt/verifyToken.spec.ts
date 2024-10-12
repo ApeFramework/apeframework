@@ -6,8 +6,6 @@ describe('verifying a token', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const token = await jwt.createToken({
@@ -35,15 +33,11 @@ describe('verifying a token using a mismatching algorithm', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const mismatchJwt = new Jwt({
       algorithm: Algorithm.HS384,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const token = await jwt.createToken({
@@ -62,15 +56,11 @@ describe('verifying a token using a mismatching secret', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const mismatchJwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const token = await jwt.createToken({
@@ -89,15 +79,11 @@ describe('verifying a token using a mismatching audience', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const mismatchJwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'mismatchAudience',
     })
 
     const token = await jwt.createToken({
@@ -116,9 +102,6 @@ describe('verifying a token using an expiration period', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
-      expiration: 60,
     })
 
     const token = await jwt.createToken({

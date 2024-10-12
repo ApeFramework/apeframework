@@ -7,8 +7,6 @@ describe('creating a token', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const token = await jwt.createToken({
@@ -25,8 +23,6 @@ describe('creating a token using different issuance timestamps', () => {
     const jwt = new Jwt({
       algorithm: Algorithm.HS256,
       secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-      issuer: 'issuer',
-      audience: 'audience',
     })
 
     const token1 = await jwt.createToken({

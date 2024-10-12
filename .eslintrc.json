@@ -12,13 +12,6 @@
       "extends": [
         "@apeframework/eslint-config/typescript"
       ],
-      "plugins": [
-        "@typescript-eslint"
-      ],
-      "rules": {
-        "@typescript-eslint/no-floating-promises": "off",
-        "@typescript-eslint/only-throw-error": "off"
-      },
       "overrides": [
         {
           "files": [

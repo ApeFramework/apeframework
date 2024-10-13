@@ -6,6 +6,7 @@ import type { Endpoint } from './Endpoint'
 import type { ErrorHandler } from './ErrorHandler'
 import type { Handler } from './Handler'
 import type { FastifyInstance } from 'fastify'
+import type { OpenAPIV3 } from 'openapi-types'
 
 class Api {
   private readonly host: string
@@ -23,7 +24,7 @@ class Api {
     onNotFound?: Handler,
     onError?: ErrorHandler,
     openapi?: {
-      title?: string,
+      name?: string,
       version?: string,
     },
     cors?: {
@@ -55,9 +56,8 @@ class Api {
 
     this.server.register(swagger, {
       openapi: {
-        openapi: '3.1.0',
         info: {
-          title: params.openapi?.title ?? '',
+          title: params.openapi?.name ?? '',
           version: params.openapi?.version ?? '',
         },
       },
@@ -96,6 +96,10 @@ class Api {
       host: this.host,
       port: this.port,
     })
+  }
+
+  public openapi(): OpenAPIV3.Document {
+    return this.server.swagger() as OpenAPIV3.Document
   }
 }
 

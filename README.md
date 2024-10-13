@@ -9,5 +9,5 @@ GitHub repository: [ApeFramework/apeframework](https://github.com/ApeFramework/a
 ## Installation
 
 ```
-npm install apeframework
+yarn add apeframework
 ```

@@ -19,10 +19,6 @@ class Api {
     host: string,
     port?: number,
     endpoints: Endpoint[],
-    onRequest?: Handler,
-    onResponse?: Handler,
-    onNotFound?: Handler,
-    onError?: ErrorHandler,
     openapi?: {
       name?: string,
       version?: string,
@@ -32,6 +28,10 @@ class Api {
       origin?: string[],
     },
     responseValidation?: boolean,
+    onRequest?: Handler,
+    onResponse?: Handler,
+    onNotFound?: Handler,
+    onError?: ErrorHandler,
   }) {
     this.host = params.host
     this.port = params.port
@@ -56,6 +56,7 @@ class Api {
 
     this.server.register(swagger, {
       openapi: {
+        openapi: '3.1.0',
         info: {
           title: params.openapi?.name ?? '',
           version: params.openapi?.version ?? '',
@@ -73,21 +74,24 @@ class Api {
       this.server.register(responseValidation)
     }
 
-    params.endpoints.forEach((e) => {
-      this.server.route({
-        url: e.path,
-        method: e.method,
-        schema: {
-          summary: e.name ?? e.path,
-          description: e.description,
-          ...e.schema.params ? { params: e.schema.params } : {},
-          ...e.schema.query ? { query: e.schema.query } : {},
-          ...e.schema.headers ? { headers: e.schema.headers } : {},
-          ...e.schema.body ? { body: e.schema.body } : {},
-          ...e.schema.response ? { response: e.schema.response } : {},
-        },
-        handler: e.handler,
+    this.server.register((server, options, done) => {
+      params.endpoints.forEach((e) => {
+        server.route({
+          url: e.path,
+          method: e.method,
+          schema: {
+            summary: e.name ?? e.path,
+            description: e.description,
+            ...e.schema.params ? { params: e.schema.params } : {},
+            ...e.schema.query ? { query: e.schema.query } : {},
+            ...e.schema.headers ? { headers: e.schema.headers } : {},
+            ...e.schema.body ? { body: e.schema.body } : {},
+            ...e.schema.response ? { response: e.schema.response } : {},
+          },
+          handler: e.handler,
+        })
       })
+      done()
     })
   }
 

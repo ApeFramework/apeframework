@@ -2,8 +2,10 @@ import cors from '@fastify/cors'
 import responseValidation from '@fastify/response-validation'
 import swagger from '@fastify/swagger'
 import fastify from 'fastify'
+import { getAjv } from './getAjv'
 import type { Endpoint } from './Endpoint'
 import type { ErrorHandler } from './ErrorHandler'
+import type { Format } from './Format'
 import type { Handler } from './Handler'
 import type { FastifyInstance } from 'fastify'
 import type { OpenAPIV3 } from 'openapi-types'
@@ -19,6 +21,7 @@ class Api {
     host: string,
     port?: number,
     endpoints: Endpoint[],
+    formats?: Format[],
     openapi?: {
       name?: string,
       version?: string,
@@ -37,6 +40,12 @@ class Api {
     this.port = params.port
 
     this.server = fastify()
+
+    const ajv = getAjv(params.formats)
+
+    this.server.setValidatorCompiler(({ schema }) => {
+      return ajv.compile(schema)
+    })
 
     if (params.onRequest) {
       this.server.addHook('onRequest', params.onRequest)

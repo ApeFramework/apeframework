@@ -4,8 +4,8 @@ describe('parsing a string', () => {
   test('returns expected value', async () => {
     expect(parseString(undefined)).toBe('')
     expect(parseString(null)).toBe('')
-    expect(parseString(false)).toBe('0')
-    expect(parseString(true)).toBe('1')
+    expect(parseString(false)).toBe('false')
+    expect(parseString(true)).toBe('true')
     expect(parseString(-3.5)).toBe('-3.5')
     expect(parseString(-1)).toBe('-1')
     expect(parseString(0)).toBe('0')

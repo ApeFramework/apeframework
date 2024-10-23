@@ -13,6 +13,10 @@ describe('parsing a boolean', () => {
     expect(parseBoolean('')).toBe(false)
     expect(parseBoolean('0')).toBe(false)
     expect(parseBoolean('1')).toBe(true)
+    expect(parseBoolean('FALSE')).toBe(false)
+    expect(parseBoolean('TRUE')).toBe(true)
+    expect(parseBoolean('false')).toBe(false)
+    expect(parseBoolean('true')).toBe(true)
   })
 })
 

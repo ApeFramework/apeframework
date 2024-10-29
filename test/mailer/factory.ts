@@ -11,6 +11,7 @@ const createMailer = (): Mailer => {
         host: 'maildev',
         port: 1025,
       })
+    case undefined:
     default:
       throw new Error('invalid adapter')
   }

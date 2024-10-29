@@ -9,7 +9,6 @@ module.exports = [
     ...ape,
     rules: {
       ...ape.rules,
-      // overrides
     },
   },
   {
@@ -17,7 +16,6 @@ module.exports = [
     ...apeTypescript,
     rules: {
       ...apeTypescript.rules,
-      // overrides
     },
   },
   {
@@ -25,7 +23,6 @@ module.exports = [
     ...apeJest,
     rules: {
       ...apeJest.rules,
-      // overrides
     },
   },
 ]

@@ -17,6 +17,7 @@ const createLogger = (): Logger => {
       return new StdioLogger({
         level: Level.OFF,
       })
+    case undefined:
     default:
       throw new Error('invalid adapter')
   }

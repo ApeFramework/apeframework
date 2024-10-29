@@ -19,7 +19,7 @@ const parseArgs = (args: string[]): Args => {
 
   const positional = parsed._ as string[]
 
-  const optional = parsed as Record<string, boolean | string>
+  const optional = parsed as Record<string, boolean | string | undefined>
 
   delete optional._
 

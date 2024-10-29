@@ -28,7 +28,7 @@ class Api {
     },
     cors?: {
       enable?: boolean,
-      origin?: string[],
+      origins?: string[],
     },
     responseValidation?: boolean,
     onRequest?: Handler,
@@ -75,7 +75,7 @@ class Api {
 
     if (params.cors?.enable) {
       this.server.register(cors, {
-        origin: params.cors.origin,
+        origin: params.cors.origins,
       })
     }
 

@@ -41,7 +41,7 @@
     "typescript": "^5.6"
   },
   "devDependencies": {
-    "@apeframework/eslint": "0.0.0-dev.10",
+    "@apeframework/eslint": "0.0.0-dev.11",
     "@types/jest": "^29.5",
     "@types/node": "^22.7",
     "eslint": "^9.12",

@@ -1,6 +1,12 @@
 #! /bin/bash
 
 #
+# TODO: rewrite to match usage
+#       local options=${@:4}
+#       options=${@:4}
+#
+
+#
 # Usage: ./bin/test.sh [(<module> <adapter> <stack>) <option>...]
 #
 #   Test all modules:
@@ -13,10 +19,6 @@
 #   Test a module using options:
 #     ./bin/test.sh api unit node --no-coverage
 #
-# TODO: rewrite to match usage
-#       local options=${@:4}
-#       options=${@:4}
-#
 
 test() {
   local stack="stack/$1/docker-compose.yml"
@@ -24,7 +26,7 @@ test() {
   local adapter=$3
 
   echo "----------------------------------------------------------------------"
-  printf "⚫ Test stack=$1 module=$2"
+  printf "⚫ TEST stack=$1 module=$2"
   if [ ! -z $adapter ]; then
     printf " adapter=$3\n"
   else

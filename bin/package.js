@@ -1,10 +1,8 @@
-#! /usr/bin/env node
-
 /*
- * Usage: ./bin/package.js <version>
+ * Usage: node bin/package <version>
  *
  *   Package build:
- *     ./bin/package.js 0.0.0-dev.0
+ *     node bin/package 0.0.0-dev.0
  */
 
 'use strict'

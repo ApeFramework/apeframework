@@ -2,6 +2,7 @@ import cors from '@fastify/cors'
 import responseValidation from '@fastify/response-validation'
 import swagger from '@fastify/swagger'
 import fastify from 'fastify'
+import { OpenApiFormat } from './OpenApiFormat'
 import { getAjv } from './getAjv'
 import type { Endpoint } from './Endpoint'
 import type { ErrorHandler } from './ErrorHandler'
@@ -111,8 +112,10 @@ class Api {
     })
   }
 
-  public openapi(): OpenAPIV3.Document {
-    return this.server.swagger() as OpenAPIV3.Document
+  public openapi(format: OpenApiFormat): OpenAPIV3.Document {
+    return this.server.swagger({
+      yaml: format === OpenApiFormat.YAML,
+    }) as OpenAPIV3.Document
   }
 }
 

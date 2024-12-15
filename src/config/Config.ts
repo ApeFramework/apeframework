@@ -1,4 +1,4 @@
-type Config = Record<string, boolean | number | string>
+type Config = Record<string, any>
 
 export {
   type Config,

@@ -4,34 +4,34 @@ import swagger from '@fastify/swagger'
 import fastify from 'fastify'
 import { OpenApiFormat } from './OpenApiFormat'
 import { getAjv } from './getAjv'
-import type { Endpoint } from './Endpoint'
 import type { ErrorHandler } from './ErrorHandler'
 import type { Format } from './Format'
 import type { Handler } from './Handler'
+import type { Route } from './Route'
 import type { FastifyInstance } from 'fastify'
 import type { OpenAPIV3 } from 'openapi-types'
 
-class Api {
+class Server {
+  private readonly server: FastifyInstance
+
   private readonly host: string
 
   private readonly port: number | undefined
 
-  private readonly server: FastifyInstance
-
   public constructor(params: {
     host: string,
     port?: number,
-    endpoints: Endpoint[],
+    routes: Route[],
     formats?: Format[],
     openapi?: {
       name?: string,
       version?: string,
     },
+    responseValidation?: boolean,
     cors?: {
       enable?: boolean,
       origins?: string[],
     },
-    responseValidation?: boolean,
     onRequest?: Handler,
     onResponse?: Handler,
     onNotFound?: Handler,
@@ -42,10 +42,48 @@ class Api {
 
     this.server = fastify()
 
-    const ajv = getAjv(params.formats)
-
     this.server.setValidatorCompiler(({ schema }) => {
-      return ajv.compile(schema)
+      return getAjv(params.formats).compile(schema)
+    })
+
+    this.server.register(swagger, {
+      openapi: {
+        openapi: '3.1.0',
+        info: {
+          title: params.openapi?.name ?? '',
+          version: params.openapi?.version ?? '',
+        },
+      },
+    })
+
+    if (params.responseValidation) {
+      this.server.register(responseValidation)
+    }
+
+    if (params.cors?.enable) {
+      this.server.register(cors, {
+        origin: params.cors.origins,
+      })
+    }
+
+    this.server.register((server, options, done) => {
+      params.routes.forEach((route) => {
+        server.route({
+          url: route.path,
+          method: route.method,
+          schema: {
+            summary: route.name ?? route.path,
+            description: route.description,
+            ...route.schema.params ? { params: route.schema.params } : {},
+            ...route.schema.query ? { query: route.schema.query } : {},
+            ...route.schema.headers ? { headers: route.schema.headers } : {},
+            ...route.schema.body ? { body: route.schema.body } : {},
+            ...route.schema.response ? { response: route.schema.response } : {},
+          },
+          handler: route.handler,
+        })
+      })
+      done()
     })
 
     if (params.onRequest) {
@@ -63,46 +101,6 @@ class Api {
     if (params.onError) {
       this.server.setErrorHandler(params.onError)
     }
-
-    this.server.register(swagger, {
-      openapi: {
-        openapi: '3.1.0',
-        info: {
-          title: params.openapi?.name ?? '',
-          version: params.openapi?.version ?? '',
-        },
-      },
-    })
-
-    if (params.cors?.enable) {
-      this.server.register(cors, {
-        origin: params.cors.origins,
-      })
-    }
-
-    if (params.responseValidation) {
-      this.server.register(responseValidation)
-    }
-
-    this.server.register((server, options, done) => {
-      params.endpoints.forEach((e) => {
-        server.route({
-          url: e.path,
-          method: e.method,
-          schema: {
-            summary: e.name ?? e.path,
-            description: e.description,
-            ...e.schema.params ? { params: e.schema.params } : {},
-            ...e.schema.query ? { query: e.schema.query } : {},
-            ...e.schema.headers ? { headers: e.schema.headers } : {},
-            ...e.schema.body ? { body: e.schema.body } : {},
-            ...e.schema.response ? { response: e.schema.response } : {},
-          },
-          handler: e.handler,
-        })
-      })
-      done()
-    })
   }
 
   public async start(): Promise<string> {
@@ -120,5 +118,5 @@ class Api {
 }
 
 export {
-  Api,
+  Server,
 }

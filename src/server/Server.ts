@@ -1,3 +1,4 @@
+import compress from '@fastify/compress'
 import cors from '@fastify/cors'
 import responseValidation from '@fastify/response-validation'
 import swagger from '@fastify/swagger'
@@ -28,8 +29,12 @@ class Server {
       version?: string,
     },
     responseValidation?: boolean,
+    compression?: {
+      enabled?: boolean,
+      threshold?: number,
+    },
     cors?: {
-      enable?: boolean,
+      enabled?: boolean,
       origins?: string[],
     },
     onRequest?: Handler,
@@ -60,7 +65,12 @@ class Server {
       this.server.register(responseValidation)
     }
 
-    if (params.cors?.enable) {
+    this.server.register(compress, {
+      global: params.compression?.enabled ?? false,
+      threshold: params.compression?.threshold ?? 1024,
+    })
+
+    if (params.cors?.enabled) {
       this.server.register(cors, {
         origin: params.cors.origins,
       })

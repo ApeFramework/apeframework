@@ -65,10 +65,12 @@ class Server {
       this.server.register(responseValidation)
     }
 
-    this.server.register(compress, {
-      global: params.compression?.enabled ?? false,
-      threshold: params.compression?.threshold ?? 1024,
-    })
+    if (params.compression?.enabled) {
+      this.server.register(compress, {
+        global: true,
+        threshold: params.compression.threshold ?? 1024,
+      })
+    }
 
     if (params.cors?.enabled) {
       this.server.register(cors, {

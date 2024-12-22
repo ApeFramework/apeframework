@@ -1,6 +1,5 @@
 import compress from '@fastify/compress'
 import cors from '@fastify/cors'
-import helmet from '@fastify/helmet'
 import responseValidation from '@fastify/response-validation'
 import swagger from '@fastify/swagger'
 import fastify from 'fastify'
@@ -78,10 +77,6 @@ class Server {
         origin: params.cors.origins,
       })
     }
-
-    this.server.register(helmet, {
-      global: false,
-    })
 
     this.server.register((server, options, done) => {
       params.routes.forEach((route) => {

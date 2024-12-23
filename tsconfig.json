@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "module": "CommonJS",
+    "module": "ESNext",
     "target": "ESNext",
     "baseUrl": "src",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true

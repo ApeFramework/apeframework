@@ -4,10 +4,7 @@
  *   Package build:
  *     node bin/package 0.0.0-dev.0
  */
-
-'use strict'
-
-const fs = require('fs-extra')
+import fs from 'fs-extra'
 
 const [version] = process.argv.slice(2)
 
@@ -16,8 +13,6 @@ if (!version) {
 }
 
 const devPkg = fs.readJsonSync('package.json')
-
-const tsConfig = fs.readJsonSync('tsconfig.build.json')
 
 const pkg = {
   name: 'apeframework',
@@ -33,8 +28,7 @@ const pkg = {
   publishConfig: {
     access: 'public',
   },
-  main: 'index.js',
-  types: 'index.d.ts',
+  type: devPkg.type,
   engines: devPkg.engines,
   dependencies: devPkg.dependencies,
   peerDependencies: devPkg.peerDependencies,
@@ -47,7 +41,3 @@ fs.writeJsonSync('dist/package.json', pkg, { spaces: 2 })
 fs.copySync('LICENSE', 'dist/LICENSE')
 
 fs.copySync('README.md', 'dist/README.md')
-
-tsConfig.include.forEach((path) => {
-  fs.copySync(path, `dist/${path.substring('src/'.length)}`)
-})

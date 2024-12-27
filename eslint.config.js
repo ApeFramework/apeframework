@@ -1,6 +1,6 @@
-import base from '@apeframework/eslint/base.js'
-import jest from '@apeframework/eslint/jest.js'
-import typescript from '@apeframework/eslint/typescript.js'
+import base from '@apeframework/eslint/base'
+import jest from '@apeframework/eslint/jest'
+import typescript from '@apeframework/eslint/typescript'
 
 const config = [
   base,

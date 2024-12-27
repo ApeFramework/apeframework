@@ -4,6 +4,7 @@
  *   Package build:
  *     node bin/package 0.0.0-dev.0
  */
+import path from 'path'
 import fs from 'fs-extra'
 
 const [version] = process.argv.slice(2)
@@ -17,6 +18,9 @@ const devPkg = fs.readJsonSync('package.json')
 const pkg = {
   name: 'apeframework',
   version,
+  publishConfig: {
+    access: 'public',
+  },
   license: 'MIT',
   author: 'Matthieu Symoens',
   description: 'Node.js app framework',
@@ -25,19 +29,36 @@ const pkg = {
     type: 'git',
     url: 'git+https://github.com/ApeFramework/apeframework.git',
   },
-  publishConfig: {
-    access: 'public',
-  },
   type: devPkg.type,
+  exports: {},
   engines: devPkg.engines,
   dependencies: devPkg.dependencies,
   peerDependencies: devPkg.peerDependencies,
 }
 
-fs.ensureDirSync('dist')
+const srcFileRegex = /^src\/(?<path>.*)\.ts$/u
 
-fs.writeJsonSync('dist/package.json', pkg, { spaces: 2 })
+const generateExports = (dir) => {
+  const files = fs.readdirSync(dir, { withFileTypes: true })
+  files.forEach((file) => {
+    const fullPath = path.join(dir, file.name)
+    if (file.isDirectory()) {
+      generateExports(fullPath)
+    } else {
+      const filePath = fullPath.match(srcFileRegex).groups.path
+      pkg.exports[`./${filePath}`] = {
+        import: {
+          types: `./dist/${filePath}.d.ts`,
+          default: `./dist/${filePath}.js`,
+        },
+      }
+    }
+  })
+}
 
-fs.copySync('LICENSE', 'dist/LICENSE')
+generateExports('src')
 
-fs.copySync('README.md', 'dist/README.md')
+fs.ensureDirSync('package')
+fs.writeJsonSync('package/package.json', pkg, { spaces: 2 })
+fs.copySync('LICENSE', 'package/LICENSE')
+fs.copySync('README.md', 'package/README.md')

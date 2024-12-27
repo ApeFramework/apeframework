@@ -8,7 +8,7 @@ const config = [
   typescript,
   {
     ignores: [
-      'dist',
+      'package',
     ],
   },
 ]

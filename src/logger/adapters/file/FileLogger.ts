@@ -1,4 +1,4 @@
-import pino from 'pino'
+import { pino } from 'pino'
 import { Level } from '../../Level.js'
 import { Logger } from '../../Logger.js'
 import { initFile } from './initFile.js'

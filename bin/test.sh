@@ -1,12 +1,6 @@
 #! /bin/bash
 
 #
-# TODO: rewrite to match usage
-#       local options=${@:4}
-#       options=${@:4}
-#
-
-#
 # Usage: ./bin/test.sh [(<module> <adapter> <stack>) <option>...]
 #
 #   Test all modules:
@@ -21,18 +15,17 @@
 #
 
 test() {
-  local stack="stack/$1/docker-compose.yml"
-  local module=$2
-  local adapter=$3
+  local module=$1
+  local adapter=$2
+  local stack="stack/$3/docker-compose.yml"
+  local options=${@:4}
 
-  echo "----------------------------------------------------------------------"
-  printf "⚫ TEST stack=$1 module=$2"
-  if [ ! -z $adapter ]; then
-    printf " adapter=$3\n"
+  printf "⚫ TEST module=$1 adapter=$2 stack=$3"
+  if [ ! -z $options ]; then
+    printf " options=$4\n"
   else
     printf "\n"
   fi
-  echo "----------------------------------------------------------------------"
 
   docker compose -f $stack run \
     --quiet-pull \
@@ -54,29 +47,35 @@ test() {
   sleep 1
 }
 
-stack=$1
-module=$2
-adapter=$3
+module=$1
+adapter=$2
+stack=$3
+options=${@:4}
 
-if [ ! -z $stack ]; then
-  if [ -z $module ]; then
-    echo 'missing argument <module>'
+if [ ! -z $module ]; then
+  if [ -z $adapter ]; then
+    echo 'missing argument <adapter>'
     exit 1
   fi
-  test $stack $module $adapter
+  if [ -z $stack ]; then
+    echo 'missing argument <stack>'
+    exit 1
+  fi
+  test $module $adapter $stack $options
 else
-  test node cipher
-  test node cli
-  test node config
-  test node env
-  test node error
-  test node jwt
-  test node logger
-  test node logger noop
-  test node mailer
-  test node mailer noop
-  test node parser
-  test node pwd
-  test node tls
-  test node utils
+  test cipher unit node
+  test cli unit node
+  test config unit node
+  test env unit node
+  test error unit node
+  test jwt unit node
+  test logger unit node
+  test logger noop node
+  test mailer unit node
+  test mailer noop node
+  test parser unit node
+  test pwd unit node
+  test server unit node
+  test tls unit node
+  test utils unit node
 fi

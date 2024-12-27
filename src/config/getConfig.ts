@@ -1,11 +1,11 @@
-import { getPropertyEnvVar } from './getPropertyEnvVar'
-import { parseProperty } from './parseProperty'
-import { readFile } from './readFile'
-import { validatePropertyName } from './validatePropertyName'
-import type { Config } from './Config'
-import type { Properties } from './Properties'
-import type { Args } from '../cli/Args'
-import type { Env } from '../env/Env'
+import { getPropertyEnvVar } from './getPropertyEnvVar.js'
+import { parseProperty } from './parseProperty.js'
+import { readFile } from './readFile.js'
+import { validatePropertyName } from './validatePropertyName.js'
+import type { Config } from './Config.js'
+import type { Properties } from './Properties.js'
+import type { Args } from '../cli/Args.js'
+import type { Env } from '../env/Env.js'
 
 const getConfig = <Type extends Config>(params: {
   properties: Properties<Type>,

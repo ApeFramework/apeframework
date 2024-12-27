@@ -1,5 +1,5 @@
-import type { Location } from './Location'
-import type { Method } from './Method'
+import type { Location } from './Location.js'
+import type { Method } from './Method.js'
 
 interface Event {
   fileName?: string,

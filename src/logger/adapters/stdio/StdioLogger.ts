@@ -1,7 +1,7 @@
 import pino from 'pino'
 import pretty from 'pino-pretty'
-import { Level } from '../../Level'
-import { Logger } from '../../Logger'
+import { Level } from '../../Level.js'
+import { Logger } from '../../Logger.js'
 import type { Logger as PinoLogger } from 'pino'
 
 class StdioLogger extends Logger {

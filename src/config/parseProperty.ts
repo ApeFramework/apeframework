@@ -1,5 +1,5 @@
-import { PropertyParseError } from './errors/PropertyParseError'
-import type { Parser } from '../parser/Parser'
+import { PropertyParseError } from './errors/PropertyParseError.js'
+import type { Parser } from '../parser/Parser.js'
 
 const parseProperty = <Type>(
   name: string,

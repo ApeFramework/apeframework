@@ -1,4 +1,4 @@
-import { BaseError } from '../../error/BaseError'
+import { BaseError } from '../../error/BaseError.js'
 
 class ListUrlError extends BaseError {
   public constructor(property: string, url: string) {

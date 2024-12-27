@@ -1,5 +1,5 @@
-import { getAddress } from './getAddress'
-import type { Address } from '../../Address'
+import { getAddress } from './getAddress.js'
+import type { Address } from '../../Address.js'
 import type { Address as NodemailerAddress } from 'nodemailer/lib/mailer'
 
 const getAddresses = (addresses?: Address[]): NodemailerAddress[] => {

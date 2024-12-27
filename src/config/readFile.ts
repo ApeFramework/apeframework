@@ -1,5 +1,5 @@
 import fs from 'fs-extra'
-import { FileReadError } from './errors/FileReadError'
+import { FileReadError } from './errors/FileReadError.js'
 
 const readFile = (path: string, required = false): Record<string, any> => {
   let json: any = {}

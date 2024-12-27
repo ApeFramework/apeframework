@@ -1,4 +1,4 @@
-import type { Attachment } from '../../Attachment'
+import type { Attachment } from '../../Attachment.js'
 import type { Attachment as NodemailerAttachment } from 'nodemailer/lib/mailer'
 
 const getAttachments = (attachments?: Attachment[]): NodemailerAttachment[] => {

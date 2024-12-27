@@ -1,7 +1,7 @@
 import pino from 'pino'
-import { Level } from '../../Level'
-import { Logger } from '../../Logger'
-import { initFile } from './initFile'
+import { Level } from '../../Level.js'
+import { Logger } from '../../Logger.js'
+import { initFile } from './initFile.js'
 import type { Logger as PinoLogger } from 'pino'
 
 class FileLogger extends Logger {

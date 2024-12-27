@@ -1,5 +1,5 @@
-import { readFile } from './readFile'
-import type { Env } from './Env'
+import { readFile } from './readFile.js'
+import type { Env } from './Env.js'
 
 const getEnv = (params?: {
   file?: {

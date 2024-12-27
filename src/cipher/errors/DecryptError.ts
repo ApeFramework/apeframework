@@ -1,4 +1,4 @@
-import { BaseError } from '../../error/BaseError'
+import { BaseError } from '../../error/BaseError.js'
 
 class DecryptError extends BaseError {
   public constructor(message: string) {

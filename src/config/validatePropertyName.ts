@@ -1,4 +1,4 @@
-import { PropertyNameError } from './errors/PropertyNameError'
+import { PropertyNameError } from './errors/PropertyNameError.js'
 
 const propertyNameRegex = /^[a-z](?:[0-9A-Za-z])*$/u
 

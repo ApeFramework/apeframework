@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs'
-import { validateHashRounds } from './validateHashRounds'
+import { validateHashRounds } from './validateHashRounds.js'
 
 class Pwd {
   private readonly hashRounds: number

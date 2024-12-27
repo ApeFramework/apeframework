@@ -1,5 +1,5 @@
 import { isValidGeolocation } from 'utils/isValidGeolocation'
-import { EventGeolocationError } from './errors/EventGeolocationError'
+import { EventGeolocationError } from './errors/EventGeolocationError.js'
 
 const validateEventGeolocation = (
   latitude: number,

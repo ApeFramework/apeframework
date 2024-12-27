@@ -1,4 +1,4 @@
-import { HashRoundsError } from './errors/HashRoundsError'
+import { HashRoundsError } from './errors/HashRoundsError.js'
 
 const validateHashRounds = (hashRounds: number): void => {
   if (hashRounds < 1) {

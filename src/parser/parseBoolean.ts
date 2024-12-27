@@ -1,5 +1,5 @@
-import { ParseError } from './errors/ParseError'
-import type { Parser } from './Parser'
+import { ParseError } from './errors/ParseError.js'
+import type { Parser } from './Parser.js'
 
 const parseBoolean: Parser<boolean> = (input) => {
   if ([

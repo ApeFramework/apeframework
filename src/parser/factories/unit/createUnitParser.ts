@@ -1,8 +1,8 @@
-import { ParseError } from '../../errors/ParseError'
-import { parseNumber } from '../../parseNumber'
-import { parseString } from '../../parseString'
-import type { Unit } from './Unit'
-import type { Parser } from '../../Parser'
+import { ParseError } from '../../errors/ParseError.js'
+import { parseNumber } from '../../parseNumber.js'
+import { parseString } from '../../parseString.js'
+import type { Unit } from './Unit.js'
+import type { Parser } from '../../Parser.js'
 
 const createUnitParser = (params: {
   type: string,

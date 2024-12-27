@@ -1,4 +1,4 @@
-import { BaseError } from '../../error/BaseError'
+import { BaseError } from '../../error/BaseError.js'
 
 class EventUrlError extends BaseError {
   public constructor(url: string) {

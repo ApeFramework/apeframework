@@ -1,5 +1,5 @@
-import { readFile } from './readFile'
-import type { Tls } from './Tls'
+import { readFile } from './readFile.js'
+import type { Tls } from './Tls.js'
 
 const getTls = (tls?: Tls): {
   key?: string,

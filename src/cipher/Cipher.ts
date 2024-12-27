@@ -1,7 +1,7 @@
 import crypto from 'crypto'
-import { DecryptError } from './errors/DecryptError'
-import { validateSecretLength } from './validateSecretLength'
-import type { Algorithm } from './Algorithm'
+import { DecryptError } from './errors/DecryptError.js'
+import { validateSecretLength } from './validateSecretLength.js'
+import type { Algorithm } from './Algorithm.js'
 
 class Cipher {
   private readonly algorithm: Algorithm

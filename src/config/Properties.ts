@@ -1,4 +1,4 @@
-import type { Parser } from '../parser/Parser'
+import type { Parser } from '../parser/Parser.js'
 
 type Properties<Type> = {
   [Property in keyof Type]: {

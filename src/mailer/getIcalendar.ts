@@ -1,5 +1,5 @@
 import { ICalCalendar } from 'ical-generator'
-import type { Event } from './Event'
+import type { Event } from './Event.js'
 import type { ICalCalendarMethod } from 'ical-generator'
 
 const getIcalendar = (event: Event): string => {

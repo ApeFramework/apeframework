@@ -1,4 +1,4 @@
-import { createMailer } from '../factory'
+import { createMailer } from '../factory.js'
 
 describe('closing a mailer', () => {
   test('succeeds', async () => {

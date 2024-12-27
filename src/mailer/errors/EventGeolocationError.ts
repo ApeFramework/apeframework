@@ -1,4 +1,4 @@
-import { BaseError } from '../../error/BaseError'
+import { BaseError } from '../../error/BaseError.js'
 
 class EventGeolocationError extends BaseError {
   public constructor(latitude: number, longitude: number) {

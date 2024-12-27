@@ -1,5 +1,5 @@
 import { isValidEmail } from 'utils/isValidEmail'
-import { AddressEmailError } from './errors/AddressEmailError'
+import { AddressEmailError } from './errors/AddressEmailError.js'
 
 const validateAddressEmail = (email: string): void => {
   if (!isValidEmail(email)) {

@@ -1,5 +1,5 @@
-import { ParseError } from './errors/ParseError'
-import type { Parser } from './Parser'
+import { ParseError } from './errors/ParseError.js'
+import type { Parser } from './Parser.js'
 
 const parseString: Parser<string> = (input) => {
   if ([undefined, null].includes(input)) {

@@ -1,7 +1,7 @@
-import type { Address } from './Address'
-import type { Attachment } from './Attachment'
-import type { Event } from './Event'
-import type { List } from './List'
+import type { Address } from './Address.js'
+import type { Attachment } from './Attachment.js'
+import type { Event } from './Event.js'
+import type { List } from './List.js'
 
 interface Mail {
   from: Address,

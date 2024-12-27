@@ -1,6 +1,6 @@
-import type { Handler } from './Handler'
-import type { Method } from './Method'
-import type { Schema } from './Schema'
+import type { Handler } from './Handler.js'
+import type { Method } from './Method.js'
+import type { Schema } from './Schema.js'
 
 interface Route {
   path: string,

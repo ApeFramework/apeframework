@@ -1,4 +1,4 @@
-import { createUnitParser } from './factories/unit/createUnitParser'
+import { createUnitParser } from './factories/unit/createUnitParser.js'
 
 const parseBytes = createUnitParser({
   type: 'bytes',

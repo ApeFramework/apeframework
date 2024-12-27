@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from 'jose'
-import { validateSecretLength } from './validateSecretLength'
-import type { Algorithm } from './Algorithm'
-import type { Payload } from './Payload'
+import { validateSecretLength } from './validateSecretLength.js'
+import type { Algorithm } from './Algorithm.js'
+import type { Payload } from './Payload.js'
 
 class Jwt {
   private readonly algorithm: Algorithm

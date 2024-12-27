@@ -1,5 +1,5 @@
-import { Algorithm } from './Algorithm'
-import { SecretLengthError } from './errors/SecretLengthError'
+import { Algorithm } from './Algorithm.js'
+import { SecretLengthError } from './errors/SecretLengthError.js'
 
 const minSecretLength = {
   [Algorithm.HS256]: 32,

@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv'
 import fastUri from 'fast-uri'
-import type { Format } from './Format'
+import type { Format } from './Format.js'
 
 const getAjv = (formats?: Format[]): Ajv => {
   const ajv = new Ajv({

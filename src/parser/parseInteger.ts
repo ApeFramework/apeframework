@@ -1,6 +1,6 @@
-import { ParseError } from './errors/ParseError'
-import { parseNumber } from './parseNumber'
-import type { Parser } from './Parser'
+import { ParseError } from './errors/ParseError.js'
+import { parseNumber } from './parseNumber.js'
+import type { Parser } from './Parser.js'
 
 const parseInteger: Parser<number> = (input) => {
   let number: number

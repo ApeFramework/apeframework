@@ -1,5 +1,5 @@
 import yargsParser from 'yargs-parser'
-import type { Args } from './Args'
+import type { Args } from './Args.js'
 
 const parseArgs = (args: string[]): Args => {
   const parsed = yargsParser(args, {

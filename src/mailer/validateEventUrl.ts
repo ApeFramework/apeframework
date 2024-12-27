@@ -1,4 +1,4 @@
-import { isValidUrl } from 'utils/isValidUrl'
+import { isValidUrl } from '../utils/isValidUrl.js'
 import { EventUrlError } from './errors/EventUrlError.js'
 
 const validateEventUrl = (url: string): void => {

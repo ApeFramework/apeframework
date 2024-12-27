@@ -1,4 +1,4 @@
-import { isValidGeolocation } from 'utils/isValidGeolocation'
+import { isValidGeolocation } from '../utils/isValidGeolocation.js'
 import { EventGeolocationError } from './errors/EventGeolocationError.js'
 
 const validateEventGeolocation = (

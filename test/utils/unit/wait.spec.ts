@@ -1,4 +1,4 @@
-import { wait } from 'utils/wait'
+import { wait } from 'utils/wait.js'
 
 describe('waiting for a period', () => {
   test('has expected side effect', async () => {

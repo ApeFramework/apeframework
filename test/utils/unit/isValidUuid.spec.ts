@@ -1,4 +1,4 @@
-import { isValidUuid } from 'utils/isValidUuid'
+import { isValidUuid } from 'utils/isValidUuid.js'
 
 describe('validating a uuid', () => {
   test('returns expected value', async () => {

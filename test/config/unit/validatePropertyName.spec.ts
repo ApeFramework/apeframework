@@ -1,4 +1,4 @@
-import { validatePropertyName } from 'config/validatePropertyName'
+import { validatePropertyName } from 'config/validatePropertyName.js'
 
 describe('validating a property name', () => {
   test('succeeds', async () => {

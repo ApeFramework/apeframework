@@ -1,4 +1,4 @@
-import { getArgs } from 'cli/getArgs'
+import { getArgs } from 'cli/getArgs.js'
 
 process.argv = [...process.argv, 'foo', '--bar', '3']
 

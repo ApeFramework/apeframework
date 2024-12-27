@@ -1,5 +1,5 @@
 import { EOL } from 'os'
-import { formatTable } from 'cli/utils/formatTable'
+import { formatTable } from 'cli/utils/formatTable.js'
 
 describe('formatting a table', () => {
   test('returns expected value', async () => {

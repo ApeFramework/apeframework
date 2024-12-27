@@ -1,6 +1,6 @@
-import { Algorithm } from 'jwt/Algorithm'
-import { Jwt } from 'jwt/Jwt'
-import { isValidJwtToken } from 'utils/isValidJwtToken'
+import { Algorithm } from 'jwt/Algorithm.js'
+import { Jwt } from 'jwt/Jwt.js'
+import { isValidJwtToken } from 'utils/isValidJwtToken.js'
 
 describe('creating a token', () => {
   test('returns expected value', async () => {

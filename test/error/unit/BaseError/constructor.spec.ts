@@ -1,4 +1,4 @@
-import { BaseError } from 'error/BaseError'
+import { BaseError } from 'error/BaseError.js'
 
 describe('creating a base error', () => {
   test('returns expected value', async () => {

@@ -1,4 +1,4 @@
-import { EventAttachmentUrlError } from 'mailer/errors/EventAttachmentUrlError'
+import { EventAttachmentUrlError } from 'mailer/errors/EventAttachmentUrlError.js'
 
 describe('creating an event attachment url error', () => {
   test('returns expected value', async () => {

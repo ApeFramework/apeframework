@@ -1,4 +1,4 @@
-import { validateListUrl } from 'mailer/validateListUrl'
+import { validateListUrl } from 'mailer/validateListUrl.js'
 
 describe('validating a list url', () => {
   test('succeeds', async () => {

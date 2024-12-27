@@ -1,5 +1,5 @@
-import { Algorithm } from 'jwt/Algorithm'
-import { Jwt } from 'jwt/Jwt'
+import { Algorithm } from 'jwt/Algorithm.js'
+import { Jwt } from 'jwt/Jwt.js'
 
 describe('verifying a token', () => {
   test('returns expected value', async () => {

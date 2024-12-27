@@ -1,4 +1,4 @@
-import { createUnitParser } from 'parser/factories/unit/createUnitParser'
+import { createUnitParser } from 'parser/factories/unit/createUnitParser.js'
 
 describe('creating a unit parser', () => {
   test('returns expected value', async () => {

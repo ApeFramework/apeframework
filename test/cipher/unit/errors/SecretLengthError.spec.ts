@@ -1,4 +1,4 @@
-import { SecretLengthError } from 'cipher/errors/SecretLengthError'
+import { SecretLengthError } from 'cipher/errors/SecretLengthError.js'
 
 describe('creating a secret length error', () => {
   test('returns expected value', async () => {

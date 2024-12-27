@@ -1,4 +1,4 @@
-import { DecryptError } from 'cipher/errors/DecryptError'
+import { DecryptError } from 'cipher/errors/DecryptError.js'
 
 describe('creating a decrypt error', () => {
   test('returns expected value', async () => {

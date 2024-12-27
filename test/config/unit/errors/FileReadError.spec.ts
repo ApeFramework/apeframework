@@ -1,4 +1,4 @@
-import { FileReadError } from 'config/errors/FileReadError'
+import { FileReadError } from 'config/errors/FileReadError.js'
 
 describe('creating a file read error', () => {
   test('returns expected value', async () => {

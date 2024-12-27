@@ -1,4 +1,4 @@
-import { AddressEmailError } from 'mailer/errors/AddressEmailError'
+import { AddressEmailError } from 'mailer/errors/AddressEmailError.js'
 
 describe('creating an address email error', () => {
   test('returns expected value', async () => {

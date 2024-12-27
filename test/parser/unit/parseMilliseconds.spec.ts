@@ -1,4 +1,4 @@
-import { parseMilliseconds } from 'parser/parseMilliseconds'
+import { parseMilliseconds } from 'parser/parseMilliseconds.js'
 
 describe('parsing milliseconds', () => {
   test('returns expected value', async () => {

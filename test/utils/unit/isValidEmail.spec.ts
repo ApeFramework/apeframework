@@ -1,4 +1,4 @@
-import { isValidEmail } from 'utils/isValidEmail'
+import { isValidEmail } from 'utils/isValidEmail.js'
 
 describe('validating an email', () => {
   test('returns expected value', async () => {

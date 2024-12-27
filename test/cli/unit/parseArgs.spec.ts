@@ -1,4 +1,4 @@
-import { parseArgs } from 'cli/parseArgs'
+import { parseArgs } from 'cli/parseArgs.js'
 
 describe('parsing arguments', () => {
   test('returns expected value', async () => {

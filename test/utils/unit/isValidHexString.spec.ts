@@ -1,4 +1,4 @@
-import { isValidHexString } from 'utils/isValidHexString'
+import { isValidHexString } from 'utils/isValidHexString.js'
 
 describe('validating a hex string', () => {
   test('returns expected value', async () => {

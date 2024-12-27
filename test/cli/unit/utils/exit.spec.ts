@@ -1,4 +1,4 @@
-import { exit } from 'cli/utils/exit'
+import { exit } from 'cli/utils/exit.js'
 
 describe('exiting', () => {
   test('has expected side effect', async () => {

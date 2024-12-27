@@ -1,4 +1,4 @@
-import { validateAddressEmail } from 'mailer/validateAddressEmail'
+import { validateAddressEmail } from 'mailer/validateAddressEmail.js'
 
 describe('validating an address email', () => {
   test('succeeds', async () => {

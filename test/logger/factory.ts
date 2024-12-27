@@ -1,9 +1,9 @@
 import { randomUUID } from 'crypto'
-import { Level } from 'logger/Level'
-import { FileLogger } from 'logger/adapters/file/FileLogger'
-import { NoopLogger } from 'logger/adapters/noop/NoopLogger'
-import { StdioLogger } from 'logger/adapters/stdio/StdioLogger'
-import type { Logger } from 'logger/Logger'
+import { Level } from 'logger/Level.js'
+import { FileLogger } from 'logger/adapters/file/FileLogger.js'
+import { NoopLogger } from 'logger/adapters/noop/NoopLogger.js'
+import { StdioLogger } from 'logger/adapters/stdio/StdioLogger.js'
+import type { Logger } from 'logger/Logger.js'
 
 const createLogger = (): Logger => {
   switch (process.env.ADAPTER) {

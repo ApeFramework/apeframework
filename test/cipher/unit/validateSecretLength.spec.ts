@@ -1,5 +1,5 @@
-import { Algorithm } from 'cipher/Algorithm'
-import { validateSecretLength } from 'cipher/validateSecretLength'
+import { Algorithm } from 'cipher/Algorithm.js'
+import { validateSecretLength } from 'cipher/validateSecretLength.js'
 
 describe('validating a secret length', () => {
   test('succeeds', async () => {

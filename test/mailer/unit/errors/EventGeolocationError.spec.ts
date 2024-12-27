@@ -1,4 +1,4 @@
-import { EventGeolocationError } from 'mailer/errors/EventGeolocationError'
+import { EventGeolocationError } from 'mailer/errors/EventGeolocationError.js'
 
 describe('creating an event geolocation error', () => {
   test('returns expected value', async () => {

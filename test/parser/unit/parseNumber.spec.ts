@@ -1,4 +1,4 @@
-import { parseNumber } from 'parser/parseNumber'
+import { parseNumber } from 'parser/parseNumber.js'
 
 describe('parsing a number', () => {
   test('returns expected value', async () => {

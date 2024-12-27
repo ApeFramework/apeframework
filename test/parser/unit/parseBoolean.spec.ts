@@ -1,4 +1,4 @@
-import { parseBoolean } from 'parser/parseBoolean'
+import { parseBoolean } from 'parser/parseBoolean.js'
 
 describe('parsing a boolean', () => {
   test('returns expected value', async () => {

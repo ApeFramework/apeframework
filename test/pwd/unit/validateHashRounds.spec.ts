@@ -1,4 +1,4 @@
-import { validateHashRounds } from 'pwd/validateHashRounds'
+import { validateHashRounds } from 'pwd/validateHashRounds.js'
 
 describe('validating password hash rounds', () => {
   test('succeeds', async () => {

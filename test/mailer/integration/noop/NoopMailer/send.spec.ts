@@ -1,4 +1,4 @@
-import { isValidEmail } from 'utils/isValidEmail'
+import { isValidEmail } from 'utils/isValidEmail.js'
 import { createMailer } from '../../../factory.js'
 
 describe('sending a mail', () => {

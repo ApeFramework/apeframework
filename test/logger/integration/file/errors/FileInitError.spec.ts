@@ -1,4 +1,4 @@
-import { FileInitError } from 'logger/adapters/file/errors/FileInitError'
+import { FileInitError } from 'logger/adapters/file/errors/FileInitError.js'
 
 describe('creating a file initialization error', () => {
   test('returns expected value', async () => {

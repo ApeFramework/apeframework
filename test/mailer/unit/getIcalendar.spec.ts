@@ -1,6 +1,6 @@
-import { Method } from 'mailer/Method'
-import { getIcalendar } from 'mailer/getIcalendar'
-import { isValidUuid } from 'utils/isValidUuid'
+import { Method } from 'mailer/Method.js'
+import { getIcalendar } from 'mailer/getIcalendar.js'
+import { isValidUuid } from 'utils/isValidUuid.js'
 
 describe('getting an icalendar', () => {
   test('returns expected value', async () => {

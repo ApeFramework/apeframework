@@ -1,4 +1,4 @@
-import { Pwd } from 'pwd/Pwd'
+import { Pwd } from 'pwd/Pwd.js'
 
 describe('verifying a password', () => {
   test('returns expected value', async () => {

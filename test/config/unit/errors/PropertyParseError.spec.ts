@@ -1,4 +1,4 @@
-import { PropertyParseError } from 'config/errors/PropertyParseError'
+import { PropertyParseError } from 'config/errors/PropertyParseError.js'
 
 describe('creating a parse error', () => {
   test('returns expected value', async () => {

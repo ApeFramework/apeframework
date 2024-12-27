@@ -1,4 +1,4 @@
-import { ParseError } from 'parser/errors/ParseError'
+import { ParseError } from 'parser/errors/ParseError.js'
 
 describe('creating an input error', () => {
   test('returns expected value', async () => {

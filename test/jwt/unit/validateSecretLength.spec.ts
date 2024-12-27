@@ -1,5 +1,5 @@
-import { Algorithm } from 'jwt/Algorithm'
-import { validateSecretLength } from 'jwt/validateSecretLength'
+import { Algorithm } from 'jwt/Algorithm.js'
+import { validateSecretLength } from 'jwt/validateSecretLength.js'
 
 describe('validating a secret length', () => {
   test('succeeds', async () => {

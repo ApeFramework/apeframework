@@ -1,4 +1,4 @@
-import { print } from 'cli/utils/print'
+import { print } from 'cli/utils/print.js'
 
 describe('printing', () => {
   test('has expected side effect', async () => {

@@ -1,4 +1,4 @@
-import { validateEventAttachmentUrl } from 'mailer/validateEventAttachmentUrl'
+import { validateEventAttachmentUrl } from 'mailer/validateEventAttachmentUrl.js'
 
 describe('validating an event attachment url', () => {
   test('succeeds', async () => {

@@ -1,5 +1,5 @@
-import { Algorithm } from 'cipher/Algorithm'
-import { Cipher } from 'cipher/Cipher'
+import { Algorithm } from 'cipher/Algorithm.js'
+import { Cipher } from 'cipher/Cipher.js'
 
 describe('decrypting a string', () => {
   test('returns expected value', async () => {

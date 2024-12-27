@@ -1,4 +1,4 @@
-import { readFile } from 'tls/readFile'
+import { readFile } from 'tls/readFile.js'
 
 describe('reading a file', () => {
   test('returns expected value', async () => {

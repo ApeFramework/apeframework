@@ -1,4 +1,4 @@
-import { parseInteger } from 'parser/parseInteger'
+import { parseInteger } from 'parser/parseInteger.js'
 
 describe('parsing an integer', () => {
   test('returns expected value', async () => {

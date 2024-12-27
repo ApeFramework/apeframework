@@ -1,6 +1,6 @@
-import { NoopMailer } from 'mailer/adapters/noop/NoopMailer'
-import { SmtpMailer } from 'mailer/adapters/smtp/SmtpMailer'
-import type { Mailer } from 'mailer/Mailer'
+import { NoopMailer } from 'mailer/adapters/noop/NoopMailer.js'
+import { SmtpMailer } from 'mailer/adapters/smtp/SmtpMailer.js'
+import type { Mailer } from 'mailer/Mailer.js'
 
 const createMailer = (): Mailer => {
   switch (process.env.ADAPTER) {

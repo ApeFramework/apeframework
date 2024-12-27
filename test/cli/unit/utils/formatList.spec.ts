@@ -1,5 +1,5 @@
 import { EOL } from 'os'
-import { formatList } from 'cli/utils/formatList'
+import { formatList } from 'cli/utils/formatList.js'
 
 describe('formatting a list', () => {
   test('returns expected value', async () => {

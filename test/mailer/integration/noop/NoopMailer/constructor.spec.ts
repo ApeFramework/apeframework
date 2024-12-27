@@ -1,4 +1,4 @@
-import { NoopMailer } from 'mailer/adapters/noop/NoopMailer'
+import { NoopMailer } from 'mailer/adapters/noop/NoopMailer.js'
 
 describe('creating a mailer', () => {
   test('succeeds', async () => {

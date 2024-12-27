@@ -1,4 +1,4 @@
-import { parseString } from 'parser/parseString'
+import { parseString } from 'parser/parseString.js'
 
 describe('parsing a string', () => {
   test('returns expected value', async () => {

@@ -1,5 +1,5 @@
 import { EOL } from 'os'
-import { formatText } from 'cli/utils/formatText'
+import { formatText } from 'cli/utils/formatText.js'
 
 describe('formatting text', () => {
   test('returns expected value', async () => {

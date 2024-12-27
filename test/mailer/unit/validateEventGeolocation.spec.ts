@@ -1,4 +1,4 @@
-import { validateEventGeolocation } from 'mailer/validateEventGeolocation'
+import { validateEventGeolocation } from 'mailer/validateEventGeolocation.js'
 
 describe('validating an event geolocation', () => {
   test('succeeds', async () => {

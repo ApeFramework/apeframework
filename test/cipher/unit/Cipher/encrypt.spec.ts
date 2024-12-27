@@ -1,6 +1,6 @@
-import { Algorithm } from 'cipher/Algorithm'
-import { Cipher } from 'cipher/Cipher'
-import { isValidHexString } from 'utils/isValidHexString'
+import { Algorithm } from 'cipher/Algorithm.js'
+import { Cipher } from 'cipher/Cipher.js'
+import { isValidHexString } from 'utils/isValidHexString.js'
 
 describe('encrypting a string', () => {
   test('returns expected value', async () => {

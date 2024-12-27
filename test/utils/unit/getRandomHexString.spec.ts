@@ -1,5 +1,5 @@
-import { getRandomHexString } from 'utils/getRandomHexString'
-import { isValidHexString } from 'utils/isValidHexString'
+import { getRandomHexString } from 'utils/getRandomHexString.js'
+import { isValidHexString } from 'utils/isValidHexString.js'
 
 describe('getting a random hex string', () => {
   test('returns expected value', async () => {

@@ -1,4 +1,4 @@
-import { readFile } from 'env/readFile'
+import { readFile } from 'env/readFile.js'
 
 describe('reading a file', () => {
   test('returns expected value', async () => {

@@ -1,5 +1,5 @@
-import { Algorithm } from 'cipher/Algorithm'
-import { Cipher } from 'cipher/Cipher'
+import { Algorithm } from 'cipher/Algorithm.js'
+import { Cipher } from 'cipher/Cipher.js'
 
 describe('creating a cipher using the aes128 algorithm', () => {
   test('succeeds', async () => {

@@ -1,4 +1,4 @@
-import { EventUrlError } from 'mailer/errors/EventUrlError'
+import { EventUrlError } from 'mailer/errors/EventUrlError.js'
 
 describe('creating an event url error', () => {
   test('returns expected value', async () => {

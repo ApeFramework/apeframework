@@ -1,4 +1,4 @@
-import { isValidUrl } from 'utils/isValidUrl'
+import { isValidUrl } from 'utils/isValidUrl.js'
 
 describe('validating a url', () => {
   test('returns expected value', async () => {

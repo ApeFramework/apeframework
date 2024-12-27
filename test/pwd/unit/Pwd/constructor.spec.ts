@@ -1,4 +1,4 @@
-import { Pwd } from 'pwd/Pwd'
+import { Pwd } from 'pwd/Pwd.js'
 
 describe('creating a pwd', () => {
   test('succeeds', async () => {

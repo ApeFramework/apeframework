@@ -1,4 +1,4 @@
-import { ListUrlError } from 'mailer/errors/ListUrlError'
+import { ListUrlError } from 'mailer/errors/ListUrlError.js'
 
 describe('creating a list url error', () => {
   test('returns expected value', async () => {

@@ -1,4 +1,4 @@
-import { getAttachments } from 'mailer/adapters/smtp/getAttachments'
+import { getAttachments } from 'mailer/adapters/smtp/getAttachments.js'
 
 describe('getting attachments', () => {
   test('returns expected value', async () => {

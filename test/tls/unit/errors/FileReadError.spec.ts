@@ -1,4 +1,4 @@
-import { FileReadError } from 'tls/errors/FileReadError'
+import { FileReadError } from 'tls/errors/FileReadError.js'
 
 describe('creating a file read error', () => {
   test('returns expected value', async () => {

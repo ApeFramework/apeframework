@@ -1,4 +1,4 @@
-import { getPropertyEnvVar } from 'config/getPropertyEnvVar'
+import { getPropertyEnvVar } from 'config/getPropertyEnvVar.js'
 
 describe('getting a property\'s environment variable', () => {
   test('returns expected value', async () => {

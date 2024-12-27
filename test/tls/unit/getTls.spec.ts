@@ -1,4 +1,4 @@
-import { getTls } from 'tls/getTls'
+import { getTls } from 'tls/getTls.js'
 
 describe('getting tls options', () => {
   test('returns expected value', async () => {

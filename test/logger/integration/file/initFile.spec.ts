@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto'
-import { initFile } from 'logger/adapters/file/initFile'
+import { initFile } from 'logger/adapters/file/initFile.js'
 
 describe('initializing a file', () => {
   test('succeeds', async () => {

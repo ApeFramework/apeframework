@@ -1,4 +1,4 @@
-import { parseBytes } from 'parser/parseBytes'
+import { parseBytes } from 'parser/parseBytes.js'
 
 describe('parsing bytes', () => {
   test('returns expected value', async () => {

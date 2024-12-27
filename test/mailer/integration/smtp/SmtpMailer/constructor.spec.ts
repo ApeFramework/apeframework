@@ -1,4 +1,4 @@
-import { SmtpMailer } from 'mailer/adapters/smtp/SmtpMailer'
+import { SmtpMailer } from 'mailer/adapters/smtp/SmtpMailer.js'
 
 describe('creating a mailer', () => {
   test('succeeds', async () => {

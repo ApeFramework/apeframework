@@ -1,4 +1,4 @@
-import { HashRoundsError } from 'pwd/errors/HashRoundsError'
+import { HashRoundsError } from 'pwd/errors/HashRoundsError.js'
 
 describe('creating a hash rounds error', () => {
   test('returns expected value', async () => {

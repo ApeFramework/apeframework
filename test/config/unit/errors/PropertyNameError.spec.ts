@@ -1,4 +1,4 @@
-import { PropertyNameError } from 'config/errors/PropertyNameError'
+import { PropertyNameError } from 'config/errors/PropertyNameError.js'
 
 describe('creating a property name error', () => {
   test('returns expected value', async () => {

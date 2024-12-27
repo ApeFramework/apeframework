@@ -1,5 +1,5 @@
-import { parseProperty } from 'config/parseProperty'
-import { parseString } from 'parser/parseString'
+import { parseProperty } from 'config/parseProperty.js'
+import { parseString } from 'parser/parseString.js'
 
 describe('parsing a property', () => {
   test('returns expected value', async () => {

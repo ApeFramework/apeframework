@@ -1,4 +1,4 @@
-import { isValidGeolocation } from 'utils/isValidGeolocation'
+import { isValidGeolocation } from 'utils/isValidGeolocation.js'
 
 describe('validating a geolocation', () => {
   test('returns expected value', async () => {

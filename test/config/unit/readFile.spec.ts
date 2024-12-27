@@ -1,4 +1,4 @@
-import { readFile } from 'config/readFile'
+import { readFile } from 'config/readFile.js'
 
 describe('reading a file', () => {
   test('returns expected value', async () => {

@@ -1,4 +1,4 @@
-import { getEnv } from 'env/getEnv'
+import { getEnv } from 'env/getEnv.js'
 
 process.env.FOO = 'baz'
 

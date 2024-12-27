@@ -1,4 +1,4 @@
-import { isValidJwtToken } from 'utils/isValidJwtToken'
+import { isValidJwtToken } from 'utils/isValidJwtToken.js'
 
 describe('validating a jwt token', () => {
   test('returns expected value', async () => {

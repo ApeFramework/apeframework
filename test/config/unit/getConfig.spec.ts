@@ -1,5 +1,5 @@
-import { getConfig } from 'config/getConfig'
-import { parseString } from 'parser/parseString'
+import { getConfig } from 'config/getConfig.js'
+import { parseString } from 'parser/parseString.js'
 
 describe('getting a configuration', () => {
   test('returns expected value', async () => {

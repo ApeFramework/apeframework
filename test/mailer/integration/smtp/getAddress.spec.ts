@@ -1,4 +1,4 @@
-import { getAddress } from 'mailer/adapters/smtp/getAddress'
+import { getAddress } from 'mailer/adapters/smtp/getAddress.js'
 
 describe('getting an address', () => {
   test('returns expected value', async () => {

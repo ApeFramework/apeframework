@@ -2,11 +2,11 @@
   "name": "apeframework",
   "private": true,
   "scripts": {
+    "update": "ncu",
     "compile": "tsc",
     "lint": "eslint",
-    "test": "jest",
     "build": "tsc -p tsconfig.build.json",
-    "update": "ncu"
+    "package": "tsx bin/package"
   },
   "type": "module",
   "engines": {
@@ -33,7 +33,7 @@
     "jose": "^5.9",
     "nodemailer": "^6.9",
     "openapi-types": "^12.1",
-    "pino": "^9.5",
+    "pino": "^9.6",
     "pino-pretty": "^13.0",
     "yargs-parser": "^21.1"
   },
@@ -42,14 +42,11 @@
     "typescript": "^5.7"
   },
   "devDependencies": {
-    "@apeframework/eslint": "0.0.0-dev.26",
-    "@types/jest": "^29.5",
+    "@apeframework/eslint": "0.0.0-dev.28",
     "@types/node": "^22.10",
     "eslint": "^9.17",
-    "jest": "^29.7",
     "npm-check-updates": "^17.1",
-    "ts-jest": "^29.2",
-    "ts-node": "^10.9",
+    "tsx": "^4.19",
     "typescript": "^5.7"
   }
 }

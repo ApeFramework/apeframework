@@ -1,12 +1,12 @@
 import { ParseError } from '../../errors/ParseError.js'
 import type { Parser } from '../../Parser.js'
 
-const createEnumParser = <Type extends Record<string, string | number>>(
+const createEnumParser = <Enum extends Record<string, string | number>>(
   params: {
     type: string,
-    enum: Type,
+    enum: Enum,
   },
-): Parser<Type[keyof Type]> => {
+): Parser<Enum[keyof Enum]> => {
   return (input) => {
     if (!Object.values(params.enum).includes(input)) {
       throw new ParseError(params.type)

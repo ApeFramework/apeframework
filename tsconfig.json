@@ -9,7 +9,7 @@
     "strict": true
   },
   "include": [
-    "src",
-    "test"
+    "bin",
+    "src"
   ]
 }

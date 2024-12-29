@@ -1,8 +1,8 @@
 /*
- * Usage: node bin/package <version>
+ * Usage: yarn package <version>
  *
- *   Package build:
- *     node bin/package 0.0.0-dev.0
+ *   Package source:
+ *     yarn package 0.0.0-dev.0
  */
 import path from 'path'
 import fs from 'fs-extra'
@@ -15,7 +15,7 @@ if (!version) {
 
 const devPkg = fs.readJsonSync('package.json')
 
-const pkg = {
+const pkg: any = {
   name: 'apeframework',
   version,
   publishConfig: {
@@ -38,14 +38,14 @@ const pkg = {
 
 const srcFileRegex = /^src\/(?<path>.*)\.ts$/u
 
-const generateExports = (dir) => {
+const generateExports = (dir: string): void => {
   const files = fs.readdirSync(dir, { withFileTypes: true })
   files.forEach((file) => {
     const fullPath = path.join(dir, file.name)
     if (file.isDirectory()) {
       generateExports(fullPath)
     } else {
-      const filePath = fullPath.match(srcFileRegex).groups.path
+      const filePath = srcFileRegex.exec(fullPath)?.groups?.path
       pkg.exports[`./${filePath}`] = {
         import: {
           types: `./dist/${filePath}.d.ts`,

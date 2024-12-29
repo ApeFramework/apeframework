@@ -1,5 +1,5 @@
 import { isValidEmail } from 'utils/isValidEmail.js'
-import { createMailer } from '../../../factory.js'
+import { createMailer } from '../../factory.js'
 
 describe('sending a mail', () => {
   test('returns expected value', async () => {

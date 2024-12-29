@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #
-# Usage: ./bin/test.sh [(<module> <adapter> <stack>) <option>...]
+# Usage: ./bin/test.sh [<module> (unit|<adapter>) <stack> [options]]
 #
 #   Test all modules:
 #     ./bin/test.sh

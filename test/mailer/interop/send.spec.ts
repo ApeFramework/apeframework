@@ -1,4 +1,4 @@
-import { createMailer } from '../factory.js'
+import { createMailer } from '../adapters/factory.js'
 
 describe('sending a mail', () => {
   test('returns expected value', async () => {

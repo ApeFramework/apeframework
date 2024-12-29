@@ -3,9 +3,16 @@ import type { Config } from 'jest'
 const module = process.env.MODULE
 const adapter = process.env.ADAPTER
 
+if (!module) {
+  throw new Error('missing environment variable MODULE')
+}
+
+if (!adapter) {
+  throw new Error('missing environment variable ADAPTER')
+}
+
 const config: Config = {
   rootDir: '../..',
-  preset: 'ts-jest',
   verbose: true,
   clearMocks: true,
   moduleDirectories: [
@@ -13,12 +20,12 @@ const config: Config = {
     'src',
   ],
   testMatch: [
-    ...adapter
-      ? [`<rootDir>/test/${module}/integration/${adapter}/**/*.spec.ts`]
-      : [`<rootDir>/test/${module}/unit/**/*.spec.ts`],
-    ...adapter && adapter !== 'noop'
-      ? [`<rootDir>/test/${module}/interop/**/*.spec.ts`]
-      : [],
+    ...adapter === 'unit'
+      ? [`<rootDir>/test/${module}/unit/**/*.spec.ts`]
+      : [`<rootDir>/test/${module}/adapters/${adapter}/**/*.spec.ts`],
+    ...['unit', 'noop'].includes(adapter)
+      ? []
+      : [`<rootDir>/test/${module}/interop/**/*.spec.ts`],
   ],
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -34,12 +41,12 @@ const config: Config = {
       statements: 100,
     },
   },
-  collectCoverageFrom: adapter
-    ? [`<rootDir>/src/${module}/adapters/${adapter}/**/*.ts`]
-    : [`<rootDir>/src/${module}/**/*.ts`],
-  coveragePathIgnorePatterns: adapter
-    ? []
-    : [`<rootDir>/src/${module}/adapters`],
+  collectCoverageFrom: adapter === 'unit'
+    ? [`<rootDir>/src/${module}/**/*.ts`]
+    : [`<rootDir>/src/${module}/adapters/${adapter}/**/*.ts`],
+  coveragePathIgnorePatterns: adapter === 'unit'
+    ? [`<rootDir>/src/${module}/adapters`]
+    : [],
 }
 
 export {

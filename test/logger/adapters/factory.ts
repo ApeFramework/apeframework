@@ -19,7 +19,7 @@ const createLogger = (): Logger => {
       })
     case undefined:
     default:
-      throw new Error('invalid adapter')
+      throw new Error('missing or invalid adapter')
   }
 }
 

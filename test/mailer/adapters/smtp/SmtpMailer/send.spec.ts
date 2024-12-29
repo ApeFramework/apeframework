@@ -2,7 +2,7 @@ import fs from 'fs-extra'
 import { Method } from 'mailer/Method.js'
 import { isValidEmail } from 'utils/isValidEmail.js'
 import { wait } from 'utils/wait.js'
-import { createMailer } from '../../../factory.js'
+import { createMailer } from '../../factory.js'
 
 describe('sending a mail', () => {
   test('returns expected value', async () => {

@@ -42,7 +42,7 @@
     "typescript": "^5.7"
   },
   "devDependencies": {
-    "@apeframework/eslint": "0.0.0-dev.29",
+    "@apeframework/eslint": "0.0.0-dev.30",
     "@types/node": "^22.10",
     "eslint": "^9.17",
     "npm-check-updates": "^17.1",

@@ -1,4 +1,4 @@
-import { SignJWT, jwtVerify } from 'jose'
+import { jwtVerify, SignJWT } from 'jose'
 import { validateSecretLength } from './validateSecretLength.js'
 import type { Algorithm } from './Algorithm.js'
 import type { Payload } from './Payload.js'

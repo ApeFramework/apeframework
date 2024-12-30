@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer'
 import { getTls } from '../../../tls/getTls.js'
-import { Mailer } from '../../Mailer.js'
 import { getIcalendar } from '../../getIcalendar.js'
+import { Mailer } from '../../Mailer.js'
 import { getAddress } from './getAddress.js'
 import { getAddresses } from './getAddresses.js'
 import { getAttachments } from './getAttachments.js'

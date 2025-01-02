@@ -46,10 +46,18 @@ const generateExports = (dir: string): void => {
       generateExports(fullPath)
     } else {
       const filePath = srcFileRegex.exec(fullPath)?.groups?.path
+      const typeExport = `./dist/${filePath}.d.ts`
+      const defaultExport = `./dist/${filePath}.js`
+      if (!fs.existsSync(path.join('package', typeExport))) {
+        throw new Error(`missing export file ${typeExport}`)
+      }
+      if (!fs.existsSync(path.join('package', defaultExport))) {
+        throw new Error(`missing export file ${defaultExport}`)
+      }
       pkg.exports[`./${filePath}`] = {
         import: {
-          types: `./dist/${filePath}.d.ts`,
-          default: `./dist/${filePath}.js`,
+          types: typeExport,
+          default: defaultExport,
         },
       }
     }
@@ -58,7 +66,6 @@ const generateExports = (dir: string): void => {
 
 generateExports('src')
 
-fs.ensureDirSync('package')
 fs.writeJsonSync('package/package.json', pkg, { spaces: 2 })
 fs.copySync('LICENSE', 'package/LICENSE')
 fs.copySync('README.md', 'package/README.md')

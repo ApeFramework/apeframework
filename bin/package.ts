@@ -17,8 +17,7 @@ type Exports = Record<string, { import: { types: string, default: string } }>
 
 const getExports = (dir: string): Exports => {
   let exp: Exports = {}
-  const files = fs.readdirSync(dir, { withFileTypes: true })
-  files.forEach((file) => {
+  fs.readdirSync(dir, { withFileTypes: true }).forEach((file) => {
     const path = join(dir, file.name)
     if (file.isDirectory()) {
       exp = { ...exp, ...getExports(path) }
@@ -35,9 +34,9 @@ const getExports = (dir: string): Exports => {
   return exp
 }
 
-const devPkg = fs.readJsonSync('package.json')
+const pkg = fs.readJsonSync('package.json')
 
-const pkg: any = {
+fs.writeJsonSync('build/package.json', {
   name: 'apeframework',
   version,
   publishConfig: {
@@ -51,13 +50,12 @@ const pkg: any = {
     type: 'git',
     url: 'git+https://github.com/ApeFramework/apeframework.git',
   },
-  type: devPkg.type,
-  engines: devPkg.engines,
-  dependencies: devPkg.dependencies,
-  peerDependencies: devPkg.peerDependencies,
+  type: pkg.type,
+  engines: pkg.engines,
+  dependencies: pkg.dependencies,
+  peerDependencies: pkg.peerDependencies,
   exports: getExports('src'),
-}
+}, { spaces: 2 })
 
-fs.writeJsonSync('package/package.json', pkg, { spaces: 2 })
-fs.copySync('LICENSE', 'package/LICENSE')
-fs.copySync('README.md', 'package/README.md')
+fs.copySync('LICENSE', 'build/LICENSE')
+fs.copySync('README.md', 'build/README.md')

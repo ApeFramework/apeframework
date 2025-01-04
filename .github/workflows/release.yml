@@ -52,6 +52,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          cd package
+          cd build
           npm publish \
             --tag=${{ steps.tag.outputs.dev == 'true' && 'dev' || 'latest' }}

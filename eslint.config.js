@@ -6,7 +6,7 @@ const config = [
   typescript,
   {
     ignores: [
-      'package',
+      'build',
       'test',
     ],
   },

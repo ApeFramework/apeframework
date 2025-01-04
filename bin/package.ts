@@ -1,16 +1,38 @@
 /*
  * Usage: yarn package <version>
  *
- *   Package source:
+ *   Package build:
  *     yarn package 0.0.0-dev.0
  */
-import path from 'path'
+import { join } from 'path'
 import fs from 'fs-extra'
 
 const [version] = process.argv.slice(2)
 
 if (!version) {
   throw new Error('missing argument <version>')
+}
+
+type Exports = Record<string, { import: { types: string, default: string } }>
+
+const getExports = (dir: string): Exports => {
+  let exp: Exports = {}
+  const files = fs.readdirSync(dir, { withFileTypes: true })
+  files.forEach((file) => {
+    const path = join(dir, file.name)
+    if (file.isDirectory()) {
+      exp = { ...exp, ...getExports(path) }
+    } else {
+      const module = path.replace(/^src\/|\.ts$/gu, '')
+      exp[`./${module}`] = {
+        import: {
+          types: `./dist/${module}.d.ts`,
+          default: `./dist/${module}.js`,
+        },
+      }
+    }
+  })
+  return exp
 }
 
 const devPkg = fs.readJsonSync('package.json')
@@ -30,41 +52,11 @@ const pkg: any = {
     url: 'git+https://github.com/ApeFramework/apeframework.git',
   },
   type: devPkg.type,
-  exports: {},
   engines: devPkg.engines,
   dependencies: devPkg.dependencies,
   peerDependencies: devPkg.peerDependencies,
+  exports: getExports('src'),
 }
-
-const srcFileRegex = /^src\/(?<path>.*)\.ts$/u
-
-const generateExports = (dir: string): void => {
-  const files = fs.readdirSync(dir, { withFileTypes: true })
-  files.forEach((file) => {
-    const fullPath = path.join(dir, file.name)
-    if (file.isDirectory()) {
-      generateExports(fullPath)
-    } else {
-      const filePath = srcFileRegex.exec(fullPath)?.groups?.path
-      const typeExport = `./dist/${filePath}.d.ts`
-      const defaultExport = `./dist/${filePath}.js`
-      if (!fs.existsSync(path.join('package', typeExport))) {
-        throw new Error(`missing export file ${typeExport}`)
-      }
-      if (!fs.existsSync(path.join('package', defaultExport))) {
-        throw new Error(`missing export file ${defaultExport}`)
-      }
-      pkg.exports[`./${filePath}`] = {
-        import: {
-          types: typeExport,
-          default: defaultExport,
-        },
-      }
-    }
-  })
-}
-
-generateExports('src')
 
 fs.writeJsonSync('package/package.json', pkg, { spaces: 2 })
 fs.copySync('LICENSE', 'package/LICENSE')
